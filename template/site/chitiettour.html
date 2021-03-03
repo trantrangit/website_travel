@@ -1,0 +1,2381 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+	<meta charset="UTF-8">
+	<title>Quản bá du lịch</title>
+	<!-- import thư viện hỗ trợ sẵn -->
+	<script  src="../../js/jquery-3.1.1.min.js"></script>
+	<script src="../../js/jssor.slider-22.2.16.min.js"></script>
+	<script src="../../js/introduction-slider.js" ></script>
+	<script  src="../../js/jquery.matchHeight.js"></script>
+	<script  src="../../js/tether.min.js"></script>
+	<script  src="../../js/bootstrap.min.js"></script>
+	<script  src="../../js/jquery.fittext.min.js"></script>
+	<script  src="../../js/jquery.jquery.equalheights.min.js"></script>
+	<script  src="../../js/slick.min.js"></script>
+	<script  src="../../js/masonry.pkgd.min.js"></script>
+	<script  src="../../js/bootstrap-datepicker.min.js"></script>
+	<script  src="../../js/masonry.pkgd.min.js"></script>
+	<script src="../../js/app.js"></script>
+	
+	<!-- <script src="//cdnjs.cloudflare.com/ajax/libs/jquery.matchHeight/0.7.0/jquery.matchHeight-min.js"></script> -->
+	<link rel="stylesheet" type="text/css" href="../../css/bootstrap.min.css">
+	<link rel="stylesheet" type="text/css" href="../../font-awesome/css/font-awesome.min.css">
+	<link href='http://fonts.googleapis.com/css?family=Open+Sans:400,300,600,700' rel='stylesheet' type='text/css'>
+	<link href='http://fonts.googleapis.com/css?family=Oswald:400,700,300' rel='stylesheet' type='text/css'>
+	<!-- import thư viện tự tạo -->
+	<!-- <link rel="stylesheet" href="../../css/reset.css"> -->
+	<link rel="stylesheet" href="../../css/style.css">
+	<link rel="stylesheet" href="../../css/slick.css">
+	<link rel="stylesheet" href="../../css/slick-theme.css">
+	<link rel="stylesheet" href="../../css/reponsive.css">
+	<link rel="stylesheet" href="../../css/bootstrap-datepicker3.min.css">
+	<link rel="stylesheet" href="../../css/bootstrap-datepicker3.standalone.min.css">
+	<link rel="stylesheet" type="text/css" href="../../css/introduction-slider.css">
+	
+	<style>
+		.header-home
+		{
+			background: #003c71;
+			height: auto;
+		}
+		.row-logo
+		{
+			margin: auto;
+		}
+		/*.silde-img
+		{
+			background: url("../../images/canhdong.jpg");
+			background-size: cover;
+			height: 30em;
+		}*/
+		.logo
+		{
+			
+			margin: auto;
+			background: url(../../images/logoletgo.png) center center no-repeat;
+			background-size: contain;
+			background-size: contain;
+			position: relative;
+			margin: 0 auto;
+			display: table-cell;
+			vertical-align: middle;
+			height: 72px;
+			min-height: 150px;
+			text-align:center;
+			width: 150px;
+			min-width:auto;
+		
+
+		}
+		.logo h1
+		{
+			position: absolute;
+			z-index: -10000;
+			top:-1000px;
+			overflow: hidden;
+		}
+		.nav-menu-main 
+		{
+			
+			font-weight: bold;
+		}
+		
+		.bg-dropdown-menu
+		{
+			background:#003c71;
+		}
+		.bg-dropdown-menu .dropdown-item:hover
+		{
+			background:rgba(255,255,255,0.3);
+		}
+		.nav-menu-main
+		{
+			vertical-align: middle;
+			padding-top: 1.3%;
+
+		}
+		/*.ul-menu-main .nav-item
+		{
+			
+			border-bottom: 1px solid; 
+			color: #ffac23;
+			padding-left: 10px;
+		}*/
+	
+		.form-control.input-search
+		{
+			border-radius:0;
+		}
+		.btn.btn-search
+		{
+				border-radius: 0 ;
+		}
+		.row-search
+		{
+			 margin: auto;
+		  
+		    width: 100%;
+		    height: 100%;
+		    display: table;
+		  
+		}
+		.row-search .col-search
+		{
+			display: table-cell;
+			text-align:center;
+			vertical-align:middle;
+		
+			
+		}
+		.title-search a
+		{
+			color: #fff;
+			font-weight: bold;
+			font-family: "Open Sans";
+			/*//text-shadow: 2px 2px rgb(0,0,0,0);*/
+			text-decoration: none;
+			text-shadow:1px 1px black;
+			
+		}
+		.img-slider-km
+		{
+			max-height: 100%;
+			max-width: 100%;
+		}
+		.content-sliderkm
+		{
+			background: rgba(0,0,0,0.3);
+		}
+		.title-gioithieu
+		{
+			font-family: "Open Sans";
+		}
+		
+		.box-tours .item
+		{
+			overflow: hidden;
+			height: 300px;
+			text-align: center;
+			margin-bottom: 18px;
+			position: relative;
+		}
+		.box-tours .item .images
+		{
+			height: 300px;
+			width: 100%;
+			position: relative;
+			overflow: hidden;
+			
+		}
+		
+		.box-tours .item .images img
+		{
+			height: 300px;
+			width: 100%;
+			transition: all ease-out 2s;
+		}
+		.h-images
+		{
+			height: 500px;
+		}
+		.box-tours .item .h-images img
+		{
+			height: 500px;
+		}
+		.box-tours .item .images img:hover
+		{
+			transform:scale(1.1);
+		}
+		.box-tours .item .name
+		{
+			position: absolute;
+			top:50%;
+			left: 25%;
+			z-index: 2;
+			display: block;
+			color: #fff;
+			font-weight: bold;
+			font-size: 3em;
+			text-shadow: 1px 1px black;
+			text-decoration: none;
+			font-family:"Rock Salt";
+
+		}
+		.box-tours .item .name small
+		{
+
+			font-size: 0.5em;
+			text-shadow: 1px 1px #fff;
+			color: #ff0066;
+		}
+		.xemthem
+		{
+			color: #fbaa24;
+			font-weight: bold;
+			letter-spacing:3px;
+		}
+		.anhphuot
+		{
+			max-height: 100%;
+			max-width: 100%;
+		}
+		.name-vanhoa
+		{
+			position: absolute;
+			bottom: 3%;
+			left: 25%;
+			z-index: 2;
+			display: block;
+			color: #000;
+			font-weight: bold;
+			font-size: 1.2em;
+		
+			text-decoration: none;
+		}
+		.bg-vanhoa
+		{
+			position: absolute;
+			background: rgba(255,255,255,0.5);
+			bottom:0;
+			z-index: 1;
+			width: 100%;
+			height: 70px;
+			overflow: hidden;
+			border-top: 5px solid #f06817;
+
+		}
+		.img-amthuc img
+		{
+			width: 100%;
+			height:192px;
+			overflow: hidden;
+		}
+		.bg-row-footer
+		{
+			height: 10px;
+		}
+		.bg-8
+		{
+			background: #23418b;
+		}
+		.bg-4
+		{
+			background: #f69018;
+		}
+
+		/*.ul-menu-main li:hover
+		{
+			border-bottom:1px solid #fff;
+			background:rgba(0,0,0,0.2);
+		}
+		.ul-menu-main li:nth-child(7):hover
+		{
+			border-bottom:none;
+		}
+		.ul-menu-main li:last-child:hover
+		{
+			border-bottom:none;
+		}
+		.ul-menu-main li:nth-child(2):hover body
+		{
+			position: absolute;
+			z-index: 3;
+			background: #000;
+		}*/
+		#toursTN
+		{
+			display: none;
+			position: absolute;
+			z-index: 9999;
+			background: #fff;
+			transition: all 4s;
+			min-width: 1000px;
+			margin-top: 2px;
+			
+		}
+		#toursTN ul a 
+		{
+			text-decoration: none;
+			color: #9f9f9f;
+		}
+		#toursTN ul a li
+		{
+			list-style: none;
+			padding: 7px;
+		}
+		#toursNN
+		{
+			display: none;
+			position: absolute;
+			z-index: 9999;
+			background: #fff;
+			transition: all 4s;
+			min-width: 1000px;
+			margin-top:2px;
+			
+		}
+
+		#toursTN ul a:hover
+		{
+			color: #FF6600;
+		}
+		#toursNN ul a 
+		{
+			text-decoration: none;
+			color: #9f9f9f;
+		}
+		#toursNN ul a li
+		{
+			list-style: none;
+			padding: 7px;
+		}
+		#toursNN ul a:hover
+		{
+			color: #FF6600;
+		}
+		.nav-search li
+		{
+			background: #fff;
+			margin: 2px;
+		}
+		.nav-search li:hover, .nav-search li:active
+		{
+			background: #003c71;
+		}
+		.nav-tabs .nav-item.show .nav-link, .nav-tabs .nav-link.active
+		{
+			background: #003c71;
+			color: #fff;
+		}
+		.datepicker-switch
+		{
+			background: #FF9900;
+			color: #fff;
+		}
+		.noidungkm li
+		{
+			list-style: none;
+		}
+		.noidungkm li:before
+		{
+			font-family: "FontAwesome";
+			content: "\f00c";
+			color:#ff9900;
+			font-weight:100; 
+			padding-right:5px;
+			font-size: 0.7em;
+
+
+		}
+		.list-tintuc li:before
+		{
+			font-family: "FontAwesome";
+			content: "\f02d";
+			color:#ff9900;
+			font-weight:100; 
+			padding-right:5px;
+			font-size: 0.7em;
+		}
+		.tieude
+		{
+			color:#FF9900;
+			font-size: 1em;
+			text-decoration: none;
+		}
+		.tieude:hover
+		{
+			text-decoration: none;
+			color:#FF9900;
+
+		}
+		.slide-header img
+		{
+			width: 100%;
+			max-height: 700px;
+		}
+		#myBtn {
+		  display: none;
+		  position: fixed;
+		  bottom: 40px;
+		  right: 30px;
+		  z-index: 99;
+		  border: none;
+		  outline: none;
+		  background-color:#003c71;
+		  color: white;
+		  cursor: pointer;
+		  padding: 15px;
+		  border-radius: 10px;
+		  font-size: 2em;
+		}
+
+		#myBtn:hover {
+		  background-color: #555;
+		}
+		.bg-8
+		{
+			background: #23418b;
+		}
+		.bg-4
+		{
+			background: #f69018;
+		}
+		   .jssorl-009-spin img {
+            animation-name: jssorl-009-spin;
+            animation-duration: 1.6s;
+            animation-iteration-count: infinite;
+            animation-timing-function: linear;
+        }
+        .img-bando
+        {
+        	width: 100%;
+        	height: 400px;
+        }
+        .nd-quocgia
+        {
+        	text-align: justify;
+        }
+		.tours-item .card
+		{
+		  
+		  	width: 25%; 
+		   border: 6px solid #f0f0f0;
+		   position: relative;
+		   background: #fff;
+
+		}
+		.rowct
+		{
+			display:none;
+		}
+		.nd1
+		{
+			display:block;
+		}
+		.rowct2
+		{
+			display:none;
+		}
+		.nd2
+		{
+			display:block;
+		}
+        @keyframes jssorl-009-spin {
+            from {
+                transform: rotate(0deg);
+            }
+
+            to {
+                transform: rotate(360deg);
+            }
+        }
+
+        .jssora093 {display:block;position:absolute;cursor:pointer;}
+        .jssora093 .c {fill:none;stroke:#fff;stroke-width:400;stroke-miterlimit:10;}
+        .jssora093 .a {fill:none;stroke:#fff;stroke-width:400;stroke-miterlimit:10;}
+        .jssora093:hover {opacity:.8;}
+        .jssora093.jssora093dn {opacity:.6;}
+        .jssora093.jssora093ds {opacity:.3;pointer-events:none;}
+
+        .jssort101 .p {position: absolute;top:0;left:0;box-sizing:border-box;background:#000;}
+        .jssort101 .p .cv {position:relative;top:0;left:0;width:100%;height:100%;border:2px solid #000;box-sizing:border-box;z-index:1;}
+        .jssort101 .a {fill:none;stroke:#fff;stroke-width:400;stroke-miterlimit:10;visibility:hidden;}
+        .jssort101 .p:hover .cv, .jssort101 .p.pdn .cv {border:none;border-color:transparent;}
+        .jssort101 .p:hover{padding:2px;}
+        .jssort101 .p:hover .cv {background-color:rgba(0,0,0,6);opacity:.35;}
+        .jssort101 .p:hover.pdn{padding:0;}
+        .jssort101 .p:hover.pdn .cv {border:2px solid #fff;background:none;opacity:.35;}
+        .jssort101 .pav .cv {border-color:#fff;opacity:.35;}
+        .jssort101 .pav .a, .jssort101 .p:hover .a {visibility:visible;}
+        .jssort101 .t {position:absolute;top:0;left:0;width:100%;height:100%;border:none;opacity:.6;}
+        .jssort101 .pav .t, .jssort101 .p:hover .t{opacity:1;}
+	}
+		@media screen and (max-width: 1040px){
+
+		}
+		@media screen and (max-width: 890px){
+		  
+
+
+		}
+		/*Ipad dọc(768 x 1024)*/
+		@media screen and (max-width: 768px){
+			
+		}
+		@media screen and (max-width: 576px){
+		   
+	    	.box-tours .item .name
+	    	{
+	    		font-size: 1.7em;
+	    	}
+		}
+		/*Tablet nhỏ(480 x 640)*/
+		@media screen and (max-width: 480px){
+		    .text-search
+			{
+				display: none;
+			}
+		    
+		}
+		/*Iphone(480 x 640)*/
+		@media screen and (max-width: 320px){
+		 
+		}
+		/*Smart phone nhỏ*/
+		@media screen and (max-width: 240px){
+
+			
+		    
+		}
+	</style>
+
+</head>
+<body>
+	<div class="container-fluid" style="background: #fff">
+		<header>
+			<div class="row header-home">
+				<div class=" col-12 col-sm-2">
+					<div class="row row-logo text-center">
+						<div class="col">
+							<div class="logo">
+								<h1><a href="#">LET GO TOURS</a></h1>
+							</div>
+						</div>
+						
+					</div>	
+				</div>
+				<div class="col-12 col-sm-9">
+					<div class="row row-menu ">
+						<div class="col ">
+							<nav class="navbar navbar-toggleable-md navbar-light nav-menu-main  ">
+								
+								   <div class="collapse navbar-collapse " id="menu" >
+									    <ul class="navbar-nav ul-menu-main ">
+									     
+									      <li class="nav-item">
+									        <a class="nav-link a-item-menu" style="color: #fff"  href="trangchu.html">TRANG CHỦ</a>
+									      </li>
+									      <li class="nav-item" style="position: relative; display: inline-block;">
+										        <a class="nav-link a-item-menu" style="color: #fff"  href="#">DU LỊCH TRONG NƯỚC
+										        </a>
+										        <div class="nen-tn">
+										        	<div class="toursTN dropdown-menu" id="toursTN" >
+													<div class="row">
+														<div class="col-sm-3">
+															<strong style="padding-left: 20px">MIỀN BẮC</strong>
+															<ul>
+																<a href="#">
+																	<li>Hà Nội</li>
+																</a>
+																<a href="#">
+																	<li>Hạ Long</li>
+																</a>
+																<a href="#">
+																	<li>Sapa</li>
+																</a>
+																
+																
+															</ul>
+															
+														</div>
+														<div class="col-sm-3">
+															<strong style="padding-left: 20px">MIỀN TRUNG</strong>
+															<ul>
+																<a href="#">
+																	<li>Phan Thiết</li>
+																</a>
+																<a href="#">
+																	<li>Nha Trang</li>
+																</a>
+																<a href="#">
+																	<li>Đà Lạt</li>
+																</a>
+																<a href="#">
+																	<li>Tây Nguyên</li>
+																</a>
+																<a href="#">
+																	<li>Đà Nẵng- Hội An</li>
+																</a>
+																<a href="#">
+																	<li>Tuy Hòa-Quy Nhơn-Quảng Ngãi</li>
+																</a>
+																<a href="#">
+																	<li>Huế</li>
+																</a>
+																<a href="#">
+																	<li>Mỹ Sơn</li>
+																</a>
+																<a href="#">
+																	<li>Phan Rang</li>
+																</a>
+																
+															
+															</ul>
+														</div>
+														<div class="col-sm-3">
+															<strong style="padding-left: 20px">MIỀN NAM</strong>
+															<ul>
+																<a href="#">
+																	<li>Miền Tây</li>
+																</a>
+																<a href="#">
+																	<li>Côn Đảo</li>
+																</a>
+																<a href="#">
+																	<li>TP. Hồ Chí Minh</li>
+																</a>
+															</ul>
+														</div>
+														<div class="col-sm-3">
+															<strong style="padding-left: 20px">CHÙM TOURS</strong>
+															<ul>
+																<a href="#">
+																	<li>Đông Bắc - Tây Bắc</li>
+																</a>
+																<a href="#">
+																	<li>Khám phá Sài Gòn & Miền Tây</li>
+																</a>
+																<a href="#">
+																	<li>Ưu đãi mua Online</li>
+																</a>
+																<a href="#">
+																	<li>Tour người cao tuổi</li>
+																</a>
+																<a href="#">
+																	<li>Tour Tết Nguyên Đám</li>
+																</a>
+																
+															</ul>
+														</div>
+													</div>
+												</div>
+
+										        </div>
+									      </li>
+									      <li class="nav-item a-item-menu " style="position: relative; display: inline-block;">
+									        <a class="nav-link a-item-menu"  style="color: #fff" href="#">DỊCH NƯỚC NGOÀI</a>
+									         <div class="nen-tn">
+										        	<div class="toursNN dropdown-menu" id="toursNN" >
+													<div class="row">
+														<div class="col-sm-3">
+															<strong  style="padding-left: 20px">CHÂU Á</strong>
+															<ul>
+																<a href="#">
+																	<li>Du lịch Campuchia</li>
+																</a>
+																<a href="#">
+																	<li>Du lịch Đài Loan</li>
+																</a>
+																<a href="#">
+																	<li>Du lịch Hàn Quốc</li>
+																</a>
+																<a href="#">
+																	<li>Du lịch HongKong</li>
+																</a>
+																<a href="#">
+																	<li>Du lịch Malaysia</li>
+																</a>
+																<a href="#">
+																	<li>Du lịch Myanmar</li>
+																</a>
+																<a href="#">
+																	<li>Du lịch Nhật Bản</li>
+																</a>
+																<a href="#">
+																	<li>Du lịch Singapore</li>
+																</a>
+																<a href="#">
+																	<li>Du lịch Thái Lan</li>
+																</a>
+																<a href="#">
+																	<li>Du lịch Trung Quốc</li>
+																</a>
+																<a href="#">
+																	<li>Tiểu Vương Quốc Ả Rập</li>
+																</a>
+																<a href="#">
+																	<li>Du lịch Brunei</li>
+																</a>
+																<a href="#">
+																	<li>Du lịch Indonexia</li>
+																</a>
+																<a href="#">
+																	<li>Du lịch Maldivers</li>
+																</a>
+																<a href="#">
+																	<li>Du lịch Philippines</li>
+																</a>
+																<a href="#">
+																	<li>Du lịch Kazakhstab</li>
+																</a>
+
+																
+																
+															</ul>
+															
+														</div>
+														<div class="col-sm-3">
+															<strong  style="padding-left: 20px">CHÂU ÂU</strong>
+															<ul>
+																<a href="#">
+																	<li>Du lịch Anh</li>
+																</a>
+																<a href="#">
+																	<li>Du lịch Nga</li>
+																</a>
+																<a href="#">
+																	<li>Du lịch Scotland</li>
+																</a>
+																<a href="#">
+																	<li>Du lịch Thổ Nhĩ Kỳ</li>
+																</a>
+																<a href="#">
+																	<li>Du lịch Malta</li>
+																</a>
+																
+															
+															</ul>
+														</div>
+														<div class="col-sm-3">
+															<strong  style="padding-left: 20px">CHÂU MỸ - CHÂU ÚC - CHÂU PHI</strong>
+															<ul>
+																<a href="#">
+																	<li>Du lịch Canada</li>
+																</a>
+																<a href="#">
+																	<li>Du lịch Úc</li>
+																</a>
+																<a href="#">
+																	<li>Du lịch Mỹ</li>
+																</a>
+																<a href="#">
+																	<li>Du lịch Nam Phi</li>
+																</a>
+																<a href="#">
+																	<li>Du lịch Ai Cập</li>
+																</a>
+																<a href="#">
+																	<li>Du lịch New Zealand</li>
+																</a>
+																<a href="#">
+																	<li>Cuba</li>
+																</a>
+
+															</ul>
+														</div>
+														<div class="col-sm-3">
+															<strong  style="padding-left: 20px">CHÙM TOURS</strong>
+															<ul>
+																<a href="#">
+																	<li>Du lịch cao cấp Premium Travel</li>
+																</a>
+																<a href="#">
+																	<li>Du thuyền cao cấp</li>
+																</a>
+																<a href="#">
+																	<li>Ưu đãi mua Online</li>
+																</a>
+																<a href="#">
+																	<li>Tiết k</li>
+																</a>
+																<a href="#">
+																	<li>Tour Tết Nguyên Đám</li>
+																</a>
+																
+															</ul>
+														</div>
+													</div>
+												</div>
+
+										        </div>
+									      </li>
+									      <li class="nav-item a-item-menu">
+									        <a class="nav-link a-item-menu"  style="color: #fff" href="tourtuthietke.html">DU LỊCH TỰ THIẾT KẾ</a>
+									      </li>
+									      <li class="nav-item dropdown">
+									        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"  style="color: #fff">
+									          DỊCH VỤ KÈM THEO
+									        </a>
+									        <div class="dropdown-menu bg-dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+									          <a class="dropdown-item" href="#"  style="color: #fff">Phương tiện</a>
+									          <a class="dropdown-item" href="#"  style="color: #fff">Khách sạn</a>
+									          <a class="dropdown-item" href="#"  style="color: #fff">Nhà hàng</a>
+									        </div>
+									      </li>
+									       <li class="nav-item a-item-menu">
+									        <a class="nav-link a-item-menu" data-toggle="modal" data-target="#frmDangNhap"  style="color: #fff" href="#">ĐĂNG NHẬP</a>
+									      </li>
+									       <li class="nav-item a-item-menu">
+									        <a class="nav-link a-item-menu" href="#"><img src="../../images/vietnam.png" width="30"  height="30" class=" m-auto img-responsive " alt=""></a>
+									       
+									      </li>
+									       <li class="nav-item a-item-menu">
+									        <a class="nav-link a-item-menu" href="#"><img src="../../images/unitedkingdom.png" width="30"  height="30" class=" m-auto img-responsive " alt=""></a>
+									       
+									      </li>
+									       
+									    </ul>
+									</div>
+									 <div class="text-center" ><a class="navbar-brand a-telephone" style="color: #ffac23;" href="#"><i class="fa fa-volume-control-phone" aria-hidden="true"></i> 0127. 6517.110</a>
+									 	<p style="color: #fff">Hỗ trợ 7h -> 21h</p>
+									 	<img src="../../images/planelogo.png" alt=""><a href="#" style="color:#FF3300" data-toggle="popover" data-placement="bottom" data-html="true" title="Chi tiết tours" data-content='
+
+
+										<div class="row">
+									         <div class="col">
+									             <div class="media">
+									                <img class="d-flex align-self-center mr-3" src="../../images/trieutienGT.jpg" alt="Generic placeholder image" width="40" height="40">
+									                <div class="media-body">
+									                    <h5 class="mt-0">Turkmenistan</h5>
+									                    <span>Số lượng: 1</span> | <span style="color: Red;">Giá: 9.000.000đ</span>
+									                </div>
+									            </div>
+									            <div class="media">
+									                <img class="d-flex align-self-center mr-3" src="../../images/trieutienGT.jpg" alt="Generic placeholder image" width="40" height="40">
+									                <div class="media-body">
+									                    <h5 class="mt-0">Việt Nam</h5>
+									                    <span>Số lượng: 1</span> | <span style="color: Red; ">Giá: 9.000.000đ</span>
+									                </div>
+									            </div>
+
+									         </div>      
+									    </div>
+									    
+									   
+									    <div class="row">
+											<div class="col text-right">
+									            <span style="color: Red; font-weight: bold;">Tổng tiền: 9.000.000đ</span>
+									        </div>
+									    </div>
+
+									'>Tours của bạn</a>
+									<script>
+										$(document).ready(function(){
+										    $('[data-toggle="popover"]').popover(); 
+										});
+									</script>
+									 </div>
+									 <button class="navbar-toggler float-right " type="button" data-toggle="collapse" data-target="#menu" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+								   <i style="color: #fff" class="fa fa-caret-up" aria-hidden="true"></i>
+								  	</button>
+
+							</nav>
+							<!-- modal dang nhap -->
+							<!-- ----------------------------------- -->
+								
+								
+							<script>
+								$(document).ready(function(){
+
+									$(".ul-menu-main li:nth-child(2)").hover(function(){
+
+										$(".toursTN").css({"display":"block"});
+
+
+									},function(){
+										$(".toursTN").css({"display":"none","transition-delay":"1000s"});
+									});
+
+									$(".ul-menu-main li:nth-child(3)").hover(function(){
+
+										$(".toursNN").css({"display":"block"});
+
+
+									},function(){
+										$(".toursNN").css({"display":"none","transition-delay":"1000s"});
+									});
+								});
+
+							</script>
+							<!-- ----------------------------------- -->
+							<div class="modal fade" id="frmDangNhap" tabindex="-1" role="dialog" aria-labelledby="dangnhap" aria-hidden="true">
+		         		 		<div class="modal-dialog modal-formlogin" role="document">
+			            			<div class="modal-content">
+			              				<div class="modal-header">
+				                			<h5 class="modal-title" id="dangnhap">ĐĂNG NHẬP</h5>
+				                			<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+				                  				<span aria-hidden="true">&times;</span>
+				                			</button>
+			              				</div>
+					            	 	<div class="modal-body">
+					               		 	<div class="container ctn-login">
+					               		 		
+					               		 		<div class="row">
+					               		 			
+					               		 			<div class="col nodung">
+					               		 				<form class="frmlogin pt-3 " >
+														    <div class="form-group row">
+														      <label for="inputEmail3" class="col-sm-4 col-form-label">Tên tài khoản</label>
+														      <div class="col-sm-8">
+														        <input type="email" class="form-control" id="inputEmail3" placeholder="Email">
+														      </div>
+														    </div>
+														    <div class="form-group row">
+														      <label for="inputPassword3" class="col-sm-4 col-form-label">Đăng nhập</label>
+														      <div class="col-sm-8">
+														        <input type="password" class="form-control" id="inputPassword3" placeholder="Password">
+														      </div>
+														    </div>
+														    <div class="form-group row">
+														      
+														      <div class="col-sm-10">
+														        <div class="form-check">
+														          <label class="form-check-label">
+														            <input class="form-check-input" type="checkbox"> Ghi nhớ mật khẩu
+														          </label>
+														        </div>
+														      </div>
+														    </div>
+														    <div class="form-group row">
+														      <div class="offset-sm-3 col-sm-10">
+														        <button type="submit" class="btn btn-primary mb-2">Đăng nhập</button>
+														        <button type="submit" class="btn btn-secondary mb-2" data-dismiss="modal">Đóng</button>
+														      </div>
+														     
+														    </div>
+														     <div class="form-group row">
+														      
+														       <div class="offset-sm-3 col-sm-10">
+														       <span class="btndangky" style="color: #000088; cursor: pointer;">Tạo mới tài khoản</span>
+														      </div>
+															 <script >
+							                                    $(function () {
+							                                          $('[data-toggle="popoverdangky"]').popover()
+							                                        })
+							                                  </script>
+
+
+														    </div>
+														  </form>
+					               		 			</div>
+					               		 		</div>
+					               		 	</div>
+					              		</div>
+			              		<!-- <div class="modal-footer">
+			                		<button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+			                		<button type="button" class="btn btn-primary">Save changes</button>
+			              		</div> -->
+			           			 </div>
+		         		 </div>
+	       			 </div><!-- xong form dang nhap dang nhap -->
+							<!-- ket thuc modal dang nhap -->
+
+
+						</div>
+					</div>
+				</div>
+			</div>
+		</header>
+		<!-- kết thức header trang chủ -->
+		<section style="max-height: 700px" >
+			<div class="row" style="background: #eee; padding-right: -15px; padding-left: -15px" >
+				<div class="col-sm-12">
+					<div id="carouselExampleIndicators" class="carousel slide slide-header" data-ride="carousel">
+					  <ol class="carousel-indicators">
+					    <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
+					    <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
+					    <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
+					  </ol>
+					  <div class="carousel-inner" role="listbox">
+					    <div class="carousel-item active">
+					      <img class="d-block img-fluid" src="../../images/canhdong.jpg" alt="First slide">
+					    </div>
+					    <div class="carousel-item">
+					      <img class="d-block img-fluid" src="../../images/baner1.jpg" alt="Second slide">
+					    </div>
+					    <div class="carousel-item">
+					      <img class="d-block img-fluid" src="../../images/baner2.jpg" alt="Third slide">
+					    </div>
+					  </div>
+					  <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
+					    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+					    <span class="sr-only">Previous</span>
+					  </a>
+					  <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
+					    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+					    <span class="sr-only">Next</span>
+					  </a>
+					</div>
+				</div>
+			</div>	
+		</section>
+		<section>
+			<div class="row" style="margin-top: -40px; width:auto; ">
+						<div class="col-2 col-sm-2">
+							
+						</div>
+						<div class="col-8 col-sm-8">
+							<!-- <div class="box-search d-flex justify-content-center "> -->
+								<!-- Nav tabs -->
+								<ul class="nav nav-tabs nav-search" role="tablist">
+								  <li class="nav-item">
+								    <a class="nav-link active" data-toggle="tab" href="#tours" role="tab"><i class="fa fa-pagelines" aria-hidden="true"></i> <span class="text-search">TÌM TOURS</span></a>
+								  </li>
+								  <li class="nav-item">
+								    <a class="nav-link" data-toggle="tab" href="#khachsan" role="tab"><i class="fa fa-home" aria-hidden="true"></i> <span class="text-search">TÌM KHÁCH SẠN</span></a>
+								  </li>
+								  <li class="nav-item">
+								    <a class="nav-link" data-toggle="tab" href="#nhahang" role="tab"><i class="fa fa-cutlery" aria-hidden="true"></i> <span class="text-search"> TÌM NHÀ HÀNG</span></a>
+								  </li>
+								  <li class="nav-item">
+								    <a class="nav-link" data-toggle="tab" href="#phuongtien" role="tab"><i class="fa fa-subway" aria-hidden="true"></i> <span class="text-search" >PHƯƠNG TIỆN</span></a>
+								  </li>
+								</ul>
+
+								<!-- Tab panes -->
+								<div class="tab-content" style="border:6px solid #e5e5e5; padding: 20px 20px;background: #fff">
+								  <div class="tab-pane active" id="tours" role="tabpanel">
+								  	<h5>Nhập điểm bạn muốn đến:</h5>
+									<form class="form-inline text-center">
+										  	<input type="text" class="form-control mb-2 mr-sm-2 mb-sm-0" id="diadiemtours" placeholder="Chọn địa điểm">
+											<div class="input-group date" data-provide="datepicker" style="padding-right: 8px">
+											    <input type="text" id="ngaykhoihanhtours" class="form-control" placeholder="Ngày khởi hành">
+											    <div class="input-group-addon">
+											        <i class="fa fa-calendar" aria-hidden="true"></i>
+											    </div>
+											</div>
+										  	<div class="input-group date" data-provide="datepicker" style="padding-right: 8px">
+											    <input type="text" id="ngayvetours" class="form-control" placeholder="Ngày về">
+											    <div class="input-group-addon">
+											        <i class="fa fa-calendar" aria-hidden="true"></i>
+											    </div>
+											</div>
+											<select class="selectpicker form-control" style="margin-right: 8px">
+											  <option>Du lịch biển</option>
+											  <option>Du lịch khám phá</option>
+											  <option>Du lịch nước ngoài</option>
+											  <option>Du lịch khám phá</option>
+											  <option>Du lịch nước ngoài</option>
+											  <option>Du lịch tâm linh</option>
+											  <option>Du lịch thành phố</option>
+											  <option>Du lịch trong nước</option>
+											   <option>Du lịch hàng ngày</option>
+											  <option>Du lịch tuần</option>
+											  <option>Tour khách hàng</option>
+											</select>
+											<input type="text" class="form-control mb-2 mr-sm-2 mb-sm-0" id="giatien" placeholder="Chọn giá tours" size="13" >
+										   <button type="submit" class="btn btn-success text-center " style="
+										   padding-right:30px;margin-top: 10px"><i class="fa fa-search" aria-hidden="true">Tìm kiếm tours</i></button>
+									</form>	
+									
+								  </div>
+								  
+								  <script>
+
+								  </script>
+								  <div class="tab-pane" id="khachsan" role="tabpanel">
+								  		<h5>Nhập điểm bạn muốn đến:</h5>
+										<form class="form-inline text-center">
+											  	<input type="text" class="form-control mb-2 mr-sm-2 mb-sm-0" id="tenks" placeholder="Nhập tên khách sạn">
+												<div class="input-group date" data-provide="datepicker" style="padding-right: 8px">
+												    <input type="text" id="ngaynhanphong" class="form-control" placeholder="Ngày nhận phòng">
+												    <div class="input-group-addon">
+												        <i class="fa fa-calendar" aria-hidden="true"></i>
+												    </div>
+												</div>
+											  	<div class="input-group date" data-provide="datepicker" style="padding-right: 8px">
+												    <input type="text" id="ngaytraphong" class="form-control" placeholder="Ngày trả phòng">
+												    <div class="input-group-addon">
+												        <i class="fa fa-calendar" aria-hidden="true"></i>
+												    </div>
+												</div>
+												
+												<input class="form-control" type="number" value="" id="sophong" min="1"  placeholder="Số phòng" size="3"  style="margin-right: 8px">
+												 
+												
+												<input class="form-control" type="number" value="" id="sokhachks" min="1" size="3"  placeholder="Số khách" style="
+										   margin-right:8px;margin-top: 10px">
+												
+											  <button type="submit" class="btn btn-success text-center " style="
+										   padding-right:30px;margin-top: 10px"><i class="fa fa-search" aria-hidden="true">Tìm kiếm khách sạn</i></button>
+										</form>	
+								  </div>
+								  <div class="tab-pane" id="nhahang" role="tabpanel">
+						  			<h5>Nhập điểm bạn muốn đến:</h5>
+									<form class="form-inline text-center">
+										  	<input type="text" class="form-control mb-2 mr-sm-2 mb-sm-0" id="diadiem" placeholder="Chọn nhà hàng">
+											<div class="input-group date" data-provide="datepicker" style="padding-right: 8px">
+											    <input type="text" id="ngaykhoihanhnh" class="form-control" placeholder="Ngày đến">
+											    <div class="input-group-addon">
+											        <i class="fa fa-calendar" aria-hidden="true"></i>
+											    </div>
+											</div>
+										  	<div class="input-group date" data-provide="datepicker" style="padding-right: 8px">
+											    <input type="text" id="ngayvenh" class="form-control" placeholder="Ngày về">
+											    <div class="input-group-addon">
+											        <i class="fa fa-calendar" aria-hidden="true"></i>
+											    </div>
+											</div>
+											<input class="form-control" type="number" value="" id="sokhach" min="1" size="3"  placeholder="Số khách"   style="margin-right: 8px" >
+											<input class="form-control" type="number" value="" id="soban" min="1" size="3"  placeholder="Số bàn"  style="
+										   margin-right:8px;margin-top: 10px">
+										      <button type="submit" class="btn btn-success text-center " style="
+										   padding-right:30px;margin-top: 10px"><i class="fa fa-search" aria-hidden="true">Tìm kiếm nhà hàng</i></button>
+									</form>	
+
+								  </div>
+								  <div class="tab-pane" id="phuongtien" role="tabpanel">
+										<h5>Nhập điểm bạn muốn đến:</h5>
+									<form class="form-inline text-center">
+										  	<input type="text" class="form-control mb-2 mr-sm-2 mb-sm-0" id="diadiempt" placeholder="Chọn địa điểm">
+											<div class="input-group date" data-provide="datepicker" style="padding-right: 8px">
+											    <input type="text" id="ngaykhoihanh" class="form-control" placeholder="Ngày khởi hành">
+											    <div class="input-group-addon">
+											        <i class="fa fa-calendar" aria-hidden="true"></i>
+											    </div>
+											</div>
+										  	<div class="input-group date" data-provide="datepicker" style="padding-right: 8px">
+											    <input type="text" id="ngayve" class="form-control" placeholder="Ngày về">
+											    <div class="input-group-addon">
+											        <i class="fa fa-calendar" aria-hidden="true"></i>
+											    </div>
+											</div>
+											<select class="selectpicker form-control" style="margin-right: 8px">
+											  <option>Xe Oto</option>
+											  <option>Máy bay</option>
+											  <option>Xe du lịch 16 chỗ</option>
+											  <option>Xe khách 50 chỗ</option>
+											  <option>Tàu lửa</option>
+											</select>
+											
+										  <button type="submit" class="btn btn-success text-center " style="
+										   padding-left:30px; padding-right:30px; padding-top: 10px"><i class="fa fa-search" aria-hidden="true">Tìm kiếm phương tiện</i></button>
+									</form>	
+								  </div>
+								</div>
+								<!-- <form class="form-inline" autocomplete="on">
+									<div class="input-group">
+										<input type="text" class="btn-border form-control input-search" placeholder="Bạn muốn tới những nơi đâu?" size="100" />
+										<span class="input-group-btn">    
+											<button type="button" class="btn btn-warning">Tìm kiếm nhanh</button>
+										</span>
+									</div>
+								</form>  -->
+						</div>
+						<div class="col-2 col-sm-2">
+						
+						</div>
+					</div>
+		</section>
+		<!-- kết thúc slider -->
+		<!-- kết thức header trang chủ -->
+		
+			
+		<!-- xong phan slider -->
+		<section class="mt-3">
+			<div class="row">
+				<div class="col">
+					<nav class="breadcrumb">
+					  <a class="breadcrumb-item" href="#">Trang chủ</a>
+					  <a class="breadcrumb-item" href="#">Việt Nam</a>
+					  <a class="breadcrumb-item" href="#">Đà lạt</a>
+					 
+					</nav>
+				</div>
+			</div>
+			<div class="row text-center">
+				<div class="col">
+					<h3><a href="#">Du Lịch Đà Lạt 3 ngày khởi hành từ Sài Gòn giá tiết kiệm (T12/2017)</a></h3>
+					<h5>Hành trình: Khám phá vườn rau, vườn hoa - Cánh đồng cẩm tú cầu - Thác Datanla</h5>
+				</div>
+			</div>
+			<div class="row mt-3">
+				<div class="col-sm-5">
+			 		<div id="carouselExampleControls" class="carousel slide" data-ride="carousel" style="height: 500px; overflow: hidden;">
+							  <div class="carousel-inner" role="listbox">
+								    <div class="carousel-item active">
+								      <img class="d-block img-fluid" src="../../images/dalat1.jpg" alt="First slide" >
+								    </div>
+								    <div class="carousel-item">
+								      <img class="d-block img-fluid" src="../../images/dalat2.jpg" alt="Second slide" >
+								    </div>
+								    <div class="carousel-item">
+								      <img class="d-block img-fluid" src="../../images/dalat3.jpg" alt="Third slide"
+								     >
+								    </div>
+								    <div class="carousel-item">
+								      <img class="d-block img-fluid" src="../../images/dalat4.jpg" alt="Third slide" 
+								     >
+								    </div>
+							  </div>
+							  <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
+							    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+							    <span class="sr-only">Previous</span>
+							  </a>
+							  <a class="carousel-control-next" href="#carouselExampleControls" role="button" data-slide="next">
+							    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+							    <span class="sr-only">Next</span>
+							  </a>
+					</div>
+					 
+				</div>
+				<div class="col">
+					<div class="row">
+						<div class="col">
+							<p><a href="#">Du Lịch Đà Lạt</a> tháng 12 là thời điểm chuyển mình từ Thu sang Đông, nên thời gian này khí hậu Đà Lạt trở nên se lạnh cùng với hoa dã quỳ, cỏ tuyết nở rộ, đó chính là những lý do khiến ai cũng phải hối hả lên Đà Lạt. Tháng 12, Đà Lạt cũng là mùa đẹp nhất khiến ai cũng phải mải mê check-in quên cả lối về.</p>
+						</div>
+					</div>
+					<div class="row">
+						<div class="col">
+							<strong>Khởi hành:</strong> <a href="#">Hồ Chí Minh</a><br>
+							<strong>Thời gian:</strong> 3 ngày 2 đêm<br>
+							<strong>Ngày khởi hành:</strong> Thứ 6 hàng tuần<br>
+							<div class="row">
+								<div class="col">
+									<strong>Số lượng:</strong> 
+								</div>
+								<div class="col">
+									<input class="form-control" type="number" value="1" id="soluong">
+								</div>
+							</div>
+							<span><strong>Khuyến mãi:</strong> <strong style="color:red"> Tặng 01 bữa buffet trưa hơn 30 món ẩm thực Việt đặc sắc</strong></span>
+						</div>
+						<div class="col text-right">
+							<strong>Giá từ: </strong><strong style="color:#FF0066; font-size:2em">1,899,000đ</strong><br>
+							<strong>Còn:</strong> 15 chỗ<br>
+							<strong>Khởi hành:</strong> 15/12/2017 <a href="">Ngày khác</a><br>
+							<a class="mt-3" href="trangchu.html">Tiếp tục đặt tours</a>
+							<a class="btn btn-success mt-3" id="themtour">THÊM TOURS</a>
+								<script >
+									$(document).ready(function(){
+										$("#thanhtoan").click(function(){
+											alert("Bạn đã thêm tour thành công");
+										});
+									});
+								</script>
+							<a type="button" class="btn btn-danger mt-3" href="ctdattour.html">ĐẶT TOURS NGAY</a>
+						</div>
+					</div>
+				</div>
+			</div>
+		</section>
+		<section class="mt-3">
+			<div class="row">
+				<div class="col-sm-9">
+					<ul class="nav nav-tabs" role="tablist">
+					  <li class="nav-item">
+					    <a class="nav-link active" data-toggle="tab" href="#tongquan" role="tab">TỔNG QUAN</a>
+					  </li>
+					  <li class="nav-item">
+					    <a class="nav-link" data-toggle="tab" href="#lichtrinh" role="tab">LỊCH TRÌNH</a>
+					  </li>
+					  <li class="nav-item">
+					    <a class="nav-link" data-toggle="tab" href="#lichkhoihanh" role="tab">LỊCH KHỞI HÀNH</a>
+					  </li>
+					  <li class="nav-item">
+					    <a class="nav-link" data-toggle="tab" href="#ghichu" role="tab">GHI CHÚ</a>
+					  </li>
+					  <li class="nav-item">
+					    <a class="nav-link" data-toggle="tab" href="#binhluan" role="tab">BÌNH LUẬN</a>
+					  </li>
+					</ul>
+
+					<!-- Tab panes -->
+					<div class="tab-content">
+					  <div class="tab-pane active" id="tongquan" role="tabpanel">
+							<p class="pt-4"><a href="#">Du Lịch Đà Lạt</a> tháng 12 là thời điểm chuyển mình từ Thu sang Đông, nên thời gian này khí hậu Đà Lạt trở nên se lạnh cùng với hoa dã quỳ, cỏ tuyết nở rộ, đó chính là những lý do khiến ai cũng phải hối hả lên Đà Lạt. Tháng 12, Đà Lạt cũng là mùa đẹp nhất khiến ai cũng phải mải mê check-in quên cả lối về.</p>
+
+					  </div>
+					  <div class="tab-pane" id="lichtrinh" role="tabpanel">
+
+							<div class="row pt-4">
+								<div class="col-2 text-center">
+									<h5>Ngày 1</h5>
+									<span style="font-size: 2em; background: #eee; border-radius: 50%; padding: 10px"><i class="fa fa-car" aria-hidden="true"></i></span>
+								</div>
+								<div class="col-10">
+									<h5><a href="#">TP.HCM – ĐÀ LẠT – VƯỜN ACTISO LADOPHAR (ăn sáng, trưa, chiều)</a></h5>
+									<strong>Sáng:</strong> Xe và Hướng Dẫn Viên Du Lịch Việt đón Quý khách tại điểm hẹn khởi hành đi Đà Lạt. 
+									Đoàn dừng chân dùng bữa sáng tại Ngã Ba Dầu Dây. Đoàn tiếp tục khởi hành đến TP. Đà Lạt.<br>
+									<strong>Trưa:</strong> Dùng cơm trưa tại Bảo Lộc.
+									Trên đường đến Đà Lạt, đoàn ghé tham quan Nhà máy sản xuất Actiso Ladophar – trực thuộc công ty đông dược Ladophar lớn nhất khu vực Tây Nguyên. Ngoài hoạt động tìm hiểu dây chuyền sản xuất trà thảo dược Atiso, thưởng thức hương vị độc đáo từ ly trà Actiso thơm ngon rất tốt cho sức khỏe, còn là địa chỉ uy tín cho du khách khi chọn mua các sản phầm về cây Actiso.
+									Tiếp tục tham quan Thiền Viện Trúc Lâm, đi cáp treo qua đồi Rôbin (chi phí tự túc), ngắm cảnh rừng thông, hồ Tuyền Lâm, núi Phượng Hoàng từ trên cao. <br>
+									 
+									<strong>Tối:</strong> Đoàn dùng cơm tối, nhận phòng nghỉ ngơi
+									Quý khách tự túc dạo thành phố Đà Lạt về đêm, ngắm cảnh Hồ Xuân Hương, thưởng thức hương vị cà phê phố núi (chi phí tự túc). Nghỉ đêm khách sạn tại Đà Lạt.
+
+								</div>
+							</div>
+							<div class="row pt-4">
+								<div class="col-2 text-center">
+									<h5>Ngày 2</h5>
+									<span style="font-size: 2em; background: #eee; border-radius: 50%; padding: 10px"><i class="fa fa-car" aria-hidden="true"></i></span>
+								</div>
+								<div class="col-10">
+									<h5><a href="#">VƯỜN RAU TỔNG HỢP – ĐỒI MỘNG MƠ – VƯỜN HOA CẨM TÚ CẦU (ăn sáng, trưa, chiều)</a></h5>
+									<strong>Sáng:</strong> Dùng bữa sáng.
+									Đoàn khởi hành đến Làng hoa Vạn Thành nơi quy tụ và trồng các loại hoa đặc trưng của Đà Lạt: hoa hồng trắng, hoa hồng đỏ, hoa cẩm chướng, hoa lan, đặc biệt là vườn rau salad thủy canh được trồng đại trà hoặc dùng trong các hộ gia đình có diện tích nhỏ.<br>
+									<span style="color: red; font-weight:bold;">Option 1: </span>Tham quan, khám phá vườn rau.
+									Đoàn tiếp tục tham quan: vườn dưa Pepino - loại dưa có mùi thơm như dưa gang và ngọt mát. Vườn cà chua Chocolate được mệnh danh là vườn nho của Đà Lạt- đây là loại cà chua cao sản ngon, giòn, ngọt được khách hàng rất ưa chuộng. Vườn ớt chuông, dưa leo Nhật, dưa leo Hà Lan…<br>
+									Option 2: Tham quan Đồi Mộng Mơ.
+									Tham quan Đồi Mộng Mơ, được ví như một Đà Lạt thu nhỏ ngập tràn sắc hoa rực rỡ, là sự pha trộn hài hòa giữa những tuyệt tác thiên nhiên và công trình kiến trúc mang đậm dấu ấn tinh hoa dân tộc Việt.<br>
+									<span style="color: red; font-weight:bold;">Option 2: </span> Dùng cơm trưa tại Bảo Lộc.
+									Trên đường đến Đà Lạt, đoàn ghé tham quan Nhà máy sản xuất Actiso Ladophar – trực thuộc công ty đông dược Ladophar lớn nhất khu vực Tây Nguyên. Ngoài hoạt động tìm hiểu dây chuyền sản xuất trà thảo dược Atiso, thưởng thức hương vị độc đáo từ ly trà Actiso thơm ngon rất tốt cho sức khỏe, còn là địa chỉ uy tín cho du khách khi chọn mua các sản phầm về cây Actiso.
+									Tiếp tục tham quan Thiền Viện Trúc Lâm, đi cáp treo qua đồi Rôbin (chi phí tự túc), ngắm cảnh rừng thông, hồ Tuyền Lâm, núi Phượng Hoàng từ trên cao. <br>
+									<strong>Trưa:</strong> Tham quan Cánh đồng hoa cẩm tú cầu rộng hơn 2 ha với những khóm hoa nở rộ, màu xanh tím đang là điểm đến khá “hot” ở Đà Lạt - địa điểm lý tưởng để tha hồ ngắm cảnh, chụp ảnh check-in. Tại đây Quý khách có thể ghi lại những bộ ảnh chụp 'long lanh' với hoa cẩm tú cầu như khung cảnh lãng mạn ở châu Âu.
+									Viếng thăm chùa Linh Phước (Chùa Ve Chai) là một công trình kiến trúc khảm sành đặc sắc của thành phố Đà Lạt với hình ảnh con rồng dài 49m được làm bằng 12.000 vỏ chai bia.<br>
+									 
+									<strong>Tối:</strong> Dùng cơm tối.<br> 
+									Quý khách tham dự đêm lửa trại, uống rượu cần, văn nghệ cồng chiêng, giao lưu văn hóa với người Tây Nguyên (chi phí tự túc), nghỉ đêm tại Đà Lạt. 
+
+								</div>
+							</div>
+							<div class="row pt-4">
+								<div class="col-2 text-center">
+									<h5>Ngày 3</h5>
+									<span style="font-size: 2em; background: #eee; border-radius: 50%; padding: 10px"><i class="fa fa-car" aria-hidden="true"></i></span>
+								</div>
+								<div class="col-10">
+									<h5><a href="#">THÁC DATANLA – TP.HCM (ăn sáng, trưa)</a></h5>
+									<strong>Sáng:</strong> Dùng bữa sáng, trả phòng.<br>
+									Quý khách tự do mua sắm tại chợ Đà Lạt. <br>
+									Qúy khách tham quan khu du lịch Datala, là điểm tham quan và phiêu lưu mạo hiểm.<br>
+									Quý khách có thể chơi máng trượt- hệ thống máng trượt duy nhất tại Đà Lạt. Máng có chiều dài 1.000m uốn lượn quanh các sườn núi (chi phí máng trượt tự túc).<br>
+									<strong>Trưa:</strong> Khởi hành về TP.HCM, đến Bảo Lộc dùng cơm trưa. <br>
+									Đến TP.HCM. Kết thúc chuyến đi, chia tay đoàn và hẹn gặp lại Quý khách.<br>
+
+								</div>
+							</div>
+							
+
+					  </div>
+					  <div class="tab-pane" id="lichkhoihanh" role="tabpanel">
+					  	<table class="table table-striped">
+						  <thead>
+						    <tr>
+						      <th scope="col">STT</th>
+						      <th scope="col">Ngày khởi hành</th>
+						      <th scope="col">Đặc điểm</th>
+						      <th scope="col">Giá từ</th>
+						      <th scope="col">Số Chỗ</th>
+						      <th scope="col" colspan="2">Đặt tour</th>
+						    </tr>
+						  </thead>
+						  <tbody>
+						    <tr>
+						      <td >1</td>
+						      <td>15/12/2017</td>
+						      <td>Tặng 01 bữa buffet trưa hơn 30 món ẩm thực Việt đặc sắc</td>
+						      <td>1,899,000đ</td>
+						      <td>Còn 15 chỗ</td>
+						      <td><a  type="button" class="btn btn-danger" href="ctdattour.html">Đặt tour</a></td>
+						      <td><button type="button" class="btn btn-success chitietnd1">Chi Tiết</button>
+						      </td>
+
+						    </tr>
+						     <tr class="rowct rowan">
+						    	
+						    	<td colspan="7" >
+						    		<table class="table" style="width: 100%">
+									  <thead class="thead-light">
+									  	<th colspan="7">
+											Bảng chi tiết giá tour (Tặng 01 bữa buffet trưa hơn 30 món ẩm thực Việt đặc sắc) 15-12-2017
+										</th>
+									    <tr>
+									      <th scope="col">Loại giá\Độ tuổ</th>
+									      <th scope="col">Người lớn</th>
+									      <th scope="col">Trẻ em</th>
+									      <th scope="col">Trẻ nhỏ</th>
+									    </tr>
+									  </thead>
+									  <tbody>
+									    <tr>
+									      <th scope="row">Giá</th>
+									      <td>1,899,000đ</td>
+									      <td>390,000 đ</td>
+									      <td>390,000 đ</td>
+									    </tr>
+									    <tr>
+									      <th scope="row">Phụ thu Nước Ngoà</th>
+									      <td>1,424,250đ</td>
+									      <td>0 đ</td>
+									      <td>0 đ</td>
+									    </tr>
+									    <tr>
+									      <th scope="row">Phụ thu Việt Kiều</th>
+									      <td>0đ</td>
+									      <td>0 đ</td>
+									      <td>0 đ</td>
+									    </tr>
+									     <tr>
+									      <th scope="row">Giảm giá</th>
+									      <td>200,000 đ</td>
+									      <td>0 đ</td>
+									      <td>0 đ</td>
+									    </tr>
+									  </tbody>
+									</table>
+						    	</td>
+						    </tr>
+						   	
+						   
+						    <tr>
+						      <th scope="row">2</th>
+						      <td>22/12/2017</td>
+						      <td>Tặng 01 bữa buffet trưa hơn 30 món ẩm thực Việt đặc sắc</td>
+						      <td>1,899,000đ</td>
+						      <td>Còn 12 chỗ</td>
+						      <td><button type="button" class="btn btn-danger" href="ctdattour.html">Đặt tour</button></td>
+						      <td><button type="button" class="btn btn-success chitietnd2" >Chi Tiết</button></td>
+						    </tr>
+							<tr class="rowct2 rowan2">
+						    	<td colspan="7">
+						    		<table class="table">
+									  <thead class="thead-light">
+									  	<tr colspan="7" class="text-center">Bảng chi tiết giá tour (Tặng 01 bữa buffet trưa hơn 30 món ẩm thực Việt đặc sắc) 15-12-2017</tr>
+									    <tr>
+									      <th scope="col">Loại giá\Độ tuổ</th>
+									      <th scope="col">Người lớn</th>
+									      <th scope="col">Trẻ em</th>
+									      <th scope="col">Trẻ nhỏ</th>
+									    </tr>
+									  </thead>
+									  <tbody>
+									    <tr>
+									      <th scope="row">Giá</th>
+									      <td>1,899,000đ</td>
+									      <td>390,000 đ</td>
+									      <td>390,000 đ</td>
+									    </tr>
+									    <tr>
+									      <th scope="row">Phụ thu Nước Ngoà</th>
+									      <td>1,424,250đ</td>
+									      <td>0 đ</td>
+									      <td>0 đ</td>
+									    </tr>
+									    <tr>
+									      <th scope="row">Phụ thu Việt Kiều</th>
+									      <td>0đ</td>
+									      <td>0 đ</td>
+									      <td>0 đ</td>
+									    </tr>
+									     <tr>
+									      <th scope="row">Giảm giá</th>
+									      <td>200,000 đ</td>
+									      <td>0 đ</td>
+									      <td>0 đ</td>
+									    </tr>
+									  </tbody>
+									</table>
+						    	</td>
+						    </tr>	
+						  </tbody>
+						</table>
+					  </div>
+					  <div class="tab-pane" id="ghichu" role="tabpanel">
+					  	<i>(Đoàn tối thiểu 20 khách khởi hành)</i> 
+						<strong>Giá tour bao gồm:</strong>
+						<ul>
+						    <li>Xe tham quan (xe 16 chỗ, 29 chỗ, 35 chỗ, 45 chỗ) tùy theo số lượng khách thực tế trên chuyến đi..</li>
+						    <li>Ăn các bữa ăn theo chương trình:</li>
+						    <li>Ăn sáng: 3 bữa sáng (1 món ăn, 1 phần nước).</li>
+						    <li>Ăn chính: 4 bữa chính tiêu chuẩn 80.000đ/ bữa và 1 buffet trưa  hơn 30 món ẩm thực  Việt đặc sắc tại nhà hàng Hạnh Phúc (KDL Đồi Mộng Mơ).</li>
+						</ul>
+						<table border="1">
+							<tr>
+								<td colspan="2">THỰC ĐƠN THAM KHẢO<br>
+									<strong>(buffet trưa tại nhà hàng Hạnh Phúc - KDL Đồi Mộng Mơ)</strong>
+								 </td>
+							</tr>
+							<tr>
+								<td >Bắp xào tôm</td>
+								<td >Rau xào thập cẩm</td>
+							</tr>
+							<tr>
+								<td >Chả giò </td>
+								<td >Miến xào lòng gà </td>
+							</tr>
+							<tr>
+								<td >Rau củ quả trộn</td>
+								<td >Cà tím nướng mỡ hành </td>
+							</tr>
+							<tr>
+								<td >Gỏi bắp chuối da heo</td>
+								<td >Cà tím nướng mỡ hành </td>
+							</tr>
+							<tr>
+								<td >Thịt nguội</td>
+								<td >Trứng cuộn</td>
+							</tr>
+							<tr>
+								<td >Bành mì sandwich</td>
+								<td >Cải xá bấu </td>
+							</tr>
+							<tr>
+								<td >Bánh hỏi</td>
+								<td >Cải xá bấu </td>
+							</tr>
+							<tr>
+								<td >Bành mì sandwich</td>
+								<td >Thịt kho TTC </td>
+							</tr>
+							<tr>
+								<td >Bánh bèo</td>
+								<td >Nghêu hấp sả</td>
+							</tr>
+							<tr>
+								<td >Cơm cháy mỡ hành</td>
+								<td >Ốc nhồi thịt</td>
+							</tr>
+							<tr>
+								<td >Cơm trắng</td>
+								<td >Nghêu hấp sả</td>
+							</tr>
+							<tr>
+								<td >Bánh bèo</td>
+								<td >Bacon cuộn nấm</td>
+							</tr>
+							<tr>
+								<td colspan="2">Tráng miệng: dưa hấu, ổi, táo, khóm ngọt, nước uống</td>
+								
+							</tr>
+							
+						</table>
+
+						<ul>
+							<li>Khách sạn 2 sao: An An, Tamy, Tâm Dung, Bảy Nghĩa, Lê Vi, Đỗ Quyên, Trung Nhân, ... (hoặc tương đương) đầy đủ tiện nghi, phòng 4 (4 khách/ phòng).</li>
+							<li>Phòng 2:
+								<ul>
+								    <li>Nếu ở 2 khách/ phòng, phụ thu 100.000đ/ khách.</li>
+								    <li>Nếu ở 1 khách/ phòng, phụ thu 360.000đ.</li>
+								    
+								</ul>
+							</li>
+							<li>Phòng 4:
+								<ul>
+								    <li>Phòng 4 nếu ở 3 khách/ phòng, phụ thu thêm 100.000đ/ khách.</li>
+								    <li>Phòng 4 nếu ở 2 khách/ phòng, phụ thu thêm 200.000đ/ khách.</li>
+								    <li>Phòng 4 nếu ở 1 khách/ phòng, phụ thu thêm 740.000đ/ khách.</li>
+								</ul>
+							</li>
+							<li>Hướng dẫn viên tiếng Việt nhiệt tình phục vụ đoàn ăn nghỉ suốt tuyến.</li>
+							<li>Vé tham quan theo chương trình.</li>
+							<li>Quý khách được phục vụ nước uống trên xe 02 chai/khách/ngày.</li>
+							<li>Quý khách được tặng 01 mũ Du Lịch Việt.</li>
+							<li>Bảo hiểm trọn tour mức bồi thường cao nhất 30,000,000đ/trường hợp./li>
+							
+						</ul>
+						<strong> Giá tour không bao gồm:</strong>
+						<ul>
+						    <li>Ăn uống, tham quan, vận chuyển ngoài chương trình.</li>
+						    <li>Bồi dưỡng hướng dẫn viên và tài xế.</li>
+						    <li>Phụ phí phòng đơn, phụ phí người nước ngoài.</li>
+						    <li>VAT.</li>
+						    <li>Cáp treo đồi Robin, Máng trượt Datala, chi phí giao lưu cồng chiêng,...</li>
+						</ul>
+						<strong> Giá vé dành cho trẻ em:</strong>
+						<ul>
+						    <li>Trẻ em dưới 05 tuổi: miễn giá tour. Cha, Mẹ hoặc người thân đi kèm tự lo các chi phí ăn, ngủ, tham quan (nếu có) cho bé. Hai người lớn chỉ kèm 1 trẻ em dưới 5 tuổi, trẻ em thứ 2 trở lên phải mua ½ vé tour.</li>
+						    <li>Trẻ em từ 05 – dưới 10 tuổi: 75% giá tour. Bao gồm các dịch vụ ăn uống, ghế ngồi trên xe và ngủ chung với gia đình. Hai người lớn chỉ được kèm 1 trẻ em từ 5 đến dưới 10tuổi, trẻ em thứ 2 trở lên Cha Mẹ nên mua thêm 1 suất giường đơn hoặc vé người lớn.</li>
+						    <li>Từ 10 tuổi trở lên: 100% giá tour và tiêu chuẩn như người lớn.</li>
+						</ul>
+						<strong>Quy định thanh toán, hủy vé:</strong>
+						<ul>
+						    <li>Sau khi xác nhận và thanh toán (ít nhất 50% tiền cọc giữ chỗ và thanh toán đủ 100% tổng giá trị tiền tour trước 10 ngày khởi hành).</li>
+						    <li>Khi đến ngày thanh toán đủ 100% tổng giá trị tiền tour, nếu Quý khách không thanh toán đúng hạn và đúng số tiền được xem như Quý khách tự ý huỷ tour và mất hết số tiền đã đặt cọc giữ chỗ.</li>
+						    <li>Vé Máy Bay / vé xe lửa / vé tàu cao tốc được xuất ngay sau khi quý khách đăng ký, thanh toán, xác nhận thông tin cá nhân (họ tên, ngày tháng năm sinh…) và có những điều kiện vé như sau: Không được đổi tên, hoàn vé, hủy vé, thay đổi ngày, thay đổi hành trình.</li>
+						    <li>
+						    	<ul><strong>Ngay sau khi Quý khách đăng ký tour nếu hủy sẽ bị phạt tiền tour:</strong>
+						    	    <li>Ngay sau khi đặt cọc hoặc thanh toán hoặc trước 15 ngày: phí hủy 10% tiền tour</li>
+						    	    <li>Hủy 10 ngày trước ngày khởi hành: phí hủy 50% tiền tour</li>
+						    	    <li>Hủy 07 ngày trước ngày khởi hành: phí hủy 70% tiền tour </li>
+						    	    <li>Hủy  05 ngày trước ngày khởi hành: phí hủy 100% tiền tour </li>
+						    	    <li>Việc huỷ bỏ chuyến đi phải được thông báo trực tiếp với Công ty hoặc qua fax, email, tin nhắn và phải được Công ty xác nhận. Việc huỷ bỏ bằng điện thoại không được chấp nhận.</li>
+						    	    <li>Việc huỷ bỏ chuyến đi phải được thông báo trực tiếp với Công ty hoặc qua fax, email, tin nhắn và phải được Công ty xác nhận. Việc huỷ bỏ bằng điện thoại không được chấp nhận.</li>
+						    	    <li>Do tính chất là đoàn ghép khách lẻ, Du Lịch Việt sẽ có trách nhiệm nhận khách đăng ký cho đủ đoàn (20 khách người lớn trở lên) thì đoàn sẽ khởi hành đúng lịch trình. Nếu số lượng đoàn dưới 20 khách, công ty có trách nhiệm thông báo cho khách trước ngày khởi hành 3 ngày và sẽ thỏa thuận lại ngày khởi hành mới hoặc hoàn trả toàn bộ số tiền đã đặt cọc tour.</li>
+						    	    <li>Các ngày đặt cọc, thanh toán, huỷ và dời tour: không tính thứ 7, Chủ Nhật. </li>
+						    	    <li>Trong những trường hợp bất khả kháng như: khủng bố, bạo động, thiên tai, lũ lụt… Tuỳ theo tình hình thực tế và sự thuận tiện, an toàn của khách hàng, công ty Du Lịch sẽ chủ động thông báo cho khách hàng sự thay đổi như sau: huỷ hoặc thay thế bằng một chương trình mới với chi phí tương đương chương trình tham quan trước đó. Trong trường hợp chương trình mới có phát sinh thì Khách hàng sẽ thanh toán khoản phát sinh này. Tuy nhiên, mỗi bên có trách nhiệm cố gắng tối đa, giúp đỡ bên bị thiệt hại nhằm giảm thiểu các tổn thất gây ra vì lý do bất khả kháng.…</li>
+						    	    <li>Đối với sự thay đổi lịch trình, giờ bay do lỗi của hãng hàng không, tàu hoả, tàu thuỷ, Du Lịch Việt sẽ không chịu trách nhiệm bất kỳ phát sinh nào do lỗi trên như: phát sinh bữa ăn, nhà hàng, khách sạn, phương tiện di chuyển, hướng dẫn viên, ….</li>
+						    	</ul>
+						    </li>
+						</ul>
+						<strong> NHỮNG THÔNG TIN CẦN THIẾT KHI ĐI TOUR:</strong>
+						<ul>
+						    <li>Ngày khởi hành, Quý khách vui lòng tập trung lúc ..........  tại ......... Công ty du lịch không chịu trách nhiệm khi Quý khách đến trễ.</li>
+						    <li>Một số thứ tự, chi tiết trong chương trình: giờ bay; giờ xe lửa; giờ tàu cao tốc, … có thể thay đổi để phù hợp với tình hình thực tế của chuyến đi (thời tiết, giao thông…).</li>
+						    <li>Qui định nhận & trả phòng tại các khách sạn/resort: nhận phòng sau 14h và trả phòng trước 12h ./.</li>
+						    <li>HDV Công ty thông báo cụ thể thời gian và địa điểm cho khách vào buổi chiều trước ngày khởi hành 01 ngày.</li>
+						    <li>Quý khách vui lòng mang theo hành lý gọn nhẹ.</li>
+						    <li> Vì lý do sức khỏe và an toàn vệ sinh thực phẩm, Quý Khách vui lòng không mang thực phẩm từ bên ngoài vào nhà hàng, khách sạn. Đối với thức uống khi mang vào phải có sự đồng ý của nhà hàng, khách sạn và bị tính phí nếu có.</li>
+						    <li>Giấy tờ tùy thân tiền bạc, hành lý tư trang quý giá. Quý khách tự giữ lấy. Công ty du lịch sẽ hỗ trợ tìm kiếm và không chịu trách nhiệm đền bù.</li>
+						    <li>Quý khách nên mang theo 1 cây dù xếp che nắng, mưa. Giày thể thao hoặc dép có quai hậu để tiện đi lại.
+</li>
+						    <li>Quý khách cần tuân theo quy định thời gian tập trung của HDV, tránh việc trễ giờ hẹn gây ảnh hưởng chung cho cả đoàn.</li>
+						    <li>Quý khách vui lòng ngồi đúng số ghế - cung cấp khi đăng ký tour.</li>
+						    <li>Trước khi rời khỏi chỗ ngồi: trên xe, nhà hàng, điểm tham quan, mua sắm, trả phòng khách sạn… Quý khách thường xuyên kiểm tra lại hành lý, tư trang cá nhân: bóp, ví, túi xách, máy ảnh, máy quay phim, điện thoại… đề phòng việc bỏ quên, thất lạc gây thiệt hại và ảnh hưởng chuyến tham quan của Quý khách.</li>
+						     <li>Quý khách cẩn thận khi đi lại trong các điểm tham quan, không được đứng, leo trèo ở những nơi không an toàn. Cẩn thận khi đi lại trên tàu, đò. Qua đường phải đi đúng luật qui định. Những gia đình có trẻ em vui lòng quan sát và trông giữ các bé cẩn thận.</li>
+						</ul>
+	
+					  </div>
+					  <div class="tab-pane" id="binhluan" role="tabpanel">
+							<div class="row pt-4">
+								<div class="col">
+									<strong>1 bình luận</strong>
+								</div>
+								<div class="col text-right">
+									<div class="row">
+										<div class="col">
+											<strong>Sắp xếp</strong>
+											
+										</div>
+										<div class="col-3">
+											<select class="selectpicker form-control" >
+											  <option value="">Hàng đầu</option>
+			                                    <option value="">Mới nhất</option>
+			                                    <option value="">Cũ nhất</option>
+											</select>
+										</div>
+									</div>
+								</div>
+							</div>
+							<div class="row pt-4">
+								<div class="col">
+									<div class="card text-center">
+									  <div class="card-header">
+									    Bình luận:
+									  </div>
+									  <div class="card-block">
+									   <textarea rows="5" cols="150" placeholder="Thêm bình luận">
+									
+										</textarea>
+									   
+									  </div>
+									  <div class="card-footer text-muted">
+									    <form class="form-inline  float-right">
+										  <div class="form-group">
+										    <label for="staticEmail2" class="sr-only">Email</label>
+										    <input type="text" readonly class="form-control-plaintext" id="staticEmail2" value="" placeholder="Email">
+										  </div>
+										  <div class="form-group mx-sm-3">
+										    <label for="tendaidien" class="sr-only">Tên đại diện</label>
+										    <input type="text" class="form-control" id="tendaidien" placeholder="Tên đại diện">
+										  </div>
+										  <button type="submit" class="btn btn-primary">Đăng</button>
+										</form>
+									  </div>
+									</div>
+								</div>
+							</div>
+							<div class="row pt-4">
+								<div class="col">
+									 <div class="media">
+									    <div class="media-left pr-3">
+									      <img src="../../images/bluan.jpg" class="media-object" style="width:60px">
+									    </div>
+									    <div class="media-body">
+									      <h4 class="media-heading">Trần Thị Trang</h4>
+									      <p>Đà Lạt 3 ngày này có tour tết âm lịch 2018 không? giá bao nhiêu thế?</p>
+									    </div>
+									  </div>
+								</div>
+							</div>
+				
+					  </div>
+					</div>
+				</div>
+				<div class="col-sm-3">
+					<ul class="list-group text-center">
+					  <li class="list-group-item active" style="background: #fff;color:#000"><i class="fa fa-map-o pr-4" aria-hidden="true"></i>TOUR LIÊN QUAN</li>
+					  <li class="list-group-item">
+					  	<div class="card" style="width: 50rem;">
+						  <img class="card-img-top" src="../../images/dl1.jpg" alt="Card image cap" height="200">
+						  <div class="card-block">
+						    <h5 class="card-title" style="color: #ff0066">Tour Nha Trang - Đà Lạt 5 ngày giá tiết kiệm đi từ Sài Gòn (T12/2017)</h5>
+						    <p class="card-text">
+								Khởi hành thứ 4 hàng tuần <br><strong style="color: #ff0066; font-size: 2em">4,099,000đ</strong>
+						    </p>
+						    <a href="#" class="btn btn-primary">Đặt nhanh</a>
+						  </div>
+						</div>
+					</li>
+					  <li class="list-group-item">	
+					  	<div class="card" style="width: 50rem;">
+						  <img class="card-img-top" src="../../images/dl2.jpg" alt="Card image cap" height="200">
+						  <div class="card-block">
+						    <h5 class="card-title" style="color: #ff0066">Tour Nha Trang - Đà Lạt 5 ngày giá tiết kiệm đi từ Sài Gòn (T12/2017)</h5>
+						    <p class="card-text">
+								Khởi hành thứ 4 hàng tuần <br><strong style="color: #ff0066; font-size: 2em">4,099,000đ</strong>
+						    </p>
+						    <a href="#" class="btn btn-primary">Đặt nhanh</a>
+						  </div>
+						</div>
+					</li>
+					  <li class="list-group-item">
+					  		<div class="card" style="width: 50rem;">
+						  <img class="card-img-top" src="../../images/dl3.jpg" alt="Card image cap" height="200">
+						  <div class="card-block">
+						    <h5 class="card-title" style="color: #ff0066">Tour Nha Trang - Đà Lạt 5 ngày giá tiết kiệm đi từ Sài Gòn (T12/2017)</h5>
+						    <p class="card-text">
+								Khởi hành thứ 4 hàng tuần <br><strong style="color: #ff0066; font-size: 2em">4,099,000đ</strong>
+						    </p>
+						    <a href="#" class="btn btn-primary">Đặt nhanh</a>
+						  </div>
+						</div>
+					  </li>
+					  <li class="list-group-item">
+							<div class="card" style="width: 50rem;">
+						  <img class="card-img-top" src="../../images/dl4.png" alt="Card image cap" height="200">
+						  <div class="card-block">
+						    <h5 class="card-title" style="color: #ff0066">Tour Nha Trang - Đà Lạt 5 ngày giá tiết kiệm đi từ Sài Gòn (T12/2017)</h5>
+						    <p class="card-text">
+								Khởi hành thứ 4 hàng tuần <br><strong style="color: #ff0066; font-size: 2em">4,099,000đ</strong>
+						    </p>
+						    <a href="#" class="btn btn-primary">Đặt nhanh</a>
+						  </div>
+						</div>
+					  </li>
+					</ul>
+				</div>
+			</div>
+		</section>
+		<!-- gioi thieu viet nam -->
+		<!-- kết thúc thuc cac nước du lịch -->
+		<section class="mt-3">
+			<div class="row text-center">
+				<div class="col">
+					<h3><a href="#" class="tieude">DU LỊCH GIẢM GIÁ</a></h3>
+				</div>
+			</div>
+			<div class="row mt-3">
+				<div class="col img-amthuc col-sm-6 col-md">
+					<div class="card mb-3">
+					  <img class="card-img-top" src="../../images/bacninh.jpg" alt="Card image cap">
+					  <div class="card-block">
+					    <h5 class="card-title" style="color: #FF6600; font-weight:bold;">Cần Thơ – Sóc Trăng – Bạc Liêu – Cà Mau – Hà Tiên 2017</h5>
+					    <h6 style="color:#33FF66">3,050,000 <sup>₫</sup></h6>
+					    <hr>
+							<ul class="card-text noidungkm"  style="color: #666666">
+							    <li><strong style="color: #003399">Ngày khởi hành:</strong> Theo yêu cầu </li>
+							    <li><strong style="color: #003399">Thời gian:</strong> 04 ngày 03 đêm </li>
+							    <li><strong style="color: #003399">Ngày khởi hành</strong> Theo yêu cầu </li>
+							    <li><strong style="color: #003399">Điểm khởi hành:</strong> Hà Nội </li>
+							    <li><strong style="color: #003399">Điểm đến:</strong> Cần Thơ - Sóc Trăng - Bạc Liêu - Cà Mau - Hà Tiên</li>
+							</ul>
+					   <button type="button" class="btn btn-outline-primary card-text" style="margin-left: 30%">Đặt tour</button>
+					  </div>
+					</div>
+				</div>
+				<div class=" img-amthuc col-sm-6 col-md">
+					<div class="card mb-3">
+					  <img class="card-img-top" src="../../images/baclieu.jpg" alt="Card image cap">
+					  <div class="card-block">
+					    <h5 class="card-title" style="color: #FF6600; font-weight:bold;">Cần Thơ – Sóc Trăng – Bạc Liêu – Cà Mau – Hà Tiên 2017</h5>
+					    <h6 style="color:#33FF66">3,050,000 <sup>₫</sup></h6>
+					    <hr>
+							<ul class="card-text noidungkm"  style="color: #666666">
+							    <li><strong style="color: #003399">Ngày khởi hành:</strong> Theo yêu cầu </li>
+							    <li><strong style="color: #003399">Thời gian:</strong> 04 ngày 03 đêm </li>
+							    <li><strong style="color: #003399">Ngày khởi hành</strong> Theo yêu cầu </li>
+							    <li><strong style="color: #003399">Điểm khởi hành:</strong> Hà Nội </li>
+							    <li><strong style="color: #003399">Điểm đến:</strong> Cần Thơ - Sóc Trăng - Bạc Liêu - Cà Mau - Hà Tiên</li>
+							</ul>
+					   <button type="button" class="btn btn-outline-primary card-text" style="margin-left: 30%">Đặt tour</button>
+					  </div>
+					</div>
+				</div>
+				<div class="img-amthuc col-sm-6 col-md">
+					<div class="card mb-3 ">
+					  <img class="card-img-top" src="../../images/bentre.jpg" alt="Card image cap">
+					  <div class="card-block">
+					    <h5 class="card-title" style="color: #FF6600; font-weight:bold;">Cần Thơ – Sóc Trăng – Bạc Liêu – Cà Mau – Hà Tiên 2017</h5>
+					    <h6 style="color:#33FF66">3,050,000 <sup>₫</sup></h6>
+					    <hr>
+							<ul class="card-text noidungkm"  style="color: #666666">
+							    <li><strong style="color: #003399">Ngày khởi hành:</strong> Theo yêu cầu </li>
+							    <li><strong style="color: #003399">Thời gian:</strong> 04 ngày 03 đêm </li>
+							    <li><strong style="color: #003399">Ngày khởi hành</strong> Theo yêu cầu </li>
+							    <li><strong style="color: #003399">Điểm khởi hành:</strong> Hà Nội </li>
+							    <li><strong style="color: #003399">Điểm đến:</strong> Cần Thơ - Sóc Trăng - Bạc Liêu - Cà Mau - Hà Tiên</li>
+							</ul>
+					   <button type="button" class="btn btn-outline-primary card-text" style="margin-left: 30%">Đặt tour</button>
+					  </div>
+					</div>
+				</div>
+				<div class=" img-amthuc col-sm-6 col-md">
+					<div class="card mb-3">
+					  <img class="card-img-top" src="../../images/binhdinh.jpg" alt="Card image cap">
+					  <div class="card-block">
+					    <h5 class="card-title" style="color: #FF6600; font-weight:bold;">Cần Thơ – Sóc Trăng – Bạc Liêu – Cà Mau – Hà Tiên 2017</h5>
+					    <h6 style="color:#33FF66">3,050,000 <sup>₫</sup></h6>
+					    <hr>
+							<ul class="card-text noidungkm"  style="color: #666666">
+							    <li><strong style="color: #003399">Ngày khởi hành:</strong> Theo yêu cầu </li>
+							    <li><strong style="color: #003399">Thời gian:</strong> 04 ngày 03 đêm </li>
+							    <li><strong style="color: #003399">Ngày khởi hành</strong> Theo yêu cầu </li>
+							    <li><strong style="color: #003399">Điểm khởi hành:</strong> Hà Nội </li>
+							    <li><strong style="color: #003399">Điểm đến:</strong> Cần Thơ - Sóc Trăng - Bạc Liêu - Cà Mau - Hà Tiên</li>
+							</ul>
+					   <button type="button" class="btn btn-outline-primary card-text" style="margin-left: 30%">Đặt tour</button>
+					  </div>
+					</div>
+				</div>
+				<div class="img-amthuc col-sm-6 col-md">
+					<div class="card mb-3">
+					  <img class="card-img-top" src="../../images/binhthuan.jpg" alt="Card image cap">
+					  <div class="card-block">
+					    <h5 class="card-title" style="color: #FF6600; font-weight:bold;">Cần Thơ – Sóc Trăng – Bạc Liêu – Cà Mau – Hà Tiên 2017</h5>
+					    <h6 style="color:#33FF66">3,050,000 <sup>₫</sup></h6>
+					    <hr>
+							<ul class="card-text noidungkm"  style="color: #666666">
+							    <li><strong style="color: #003399">Ngày khởi hành:</strong> Theo yêu cầu </li>
+							    <li><strong style="color: #003399">Thời gian:</strong> 04 ngày 03 đêm </li>
+							    <li><strong style="color: #003399">Ngày khởi hành</strong> Theo yêu cầu </li>
+							    <li><strong style="color: #003399">Điểm khởi hành:</strong> Hà Nội </li>
+							    <li><strong style="color: #003399">Điểm đến:</strong> Cần Thơ - Sóc Trăng - Bạc Liêu - Cà Mau - Hà Tiên</li>
+							</ul>
+					   <button type="button" class="btn btn-outline-primary card-text" style="margin-left: 30%">Đặt tour</button>
+					  </div>
+					</div>
+				</div>
+			</div>
+		</section>
+		<!-- kết thúc tiêu chí -->
+		<section class="mt-3">
+			<div class="row">
+				<div class="col">
+					<div class="row text-center">
+						<div class="col">
+							<h3><a href="#" class="tieude">VĂN HÓA LỄ HỘI</a></h3>
+						</div>
+					</div>
+					<div class="row mt-3">
+						<div class="col">
+							<div class="row box-tours">
+								<div class="item col-sm-6 col-md-3">
+									<div class="images h-images">
+										<a href="#">
+											<img src="../../images/lehoileocotmoindonexia.jpg" alt="">
+										</a>
+										<a href="#" class="name-vanhoa"><i style="color: #f06817; font-size: 1.2em" class="fa fa-map-marker" aria-hidden="true"></i> Lễ hội leo cột mỡ - Indonexia</a>
+										<div class="bg-vanhoa">
+											
+										</div>
+									</div>
+									
+								</div>
+								
+								<div class="item col-sm-6 col-md-3">
+									<div class="images h-images">
+										<a href="#"><img src="../../images/lehoihoadangthailai.jpg" alt=""></a>
+										<a href="#" class="name-vanhoa"><i style="color: #f06817;font-size: 1.2em" class="fa fa-map-marker" aria-hidden="true"></i> Lễ hội hoa đăng - Thái Lan</a>
+										<div class="bg-vanhoa">
+										
+										</div>
+									</div>
+									
+								</div>
+								<div class="item col-sm-6 col-md-3 h-images">
+									<div class="images h-images">
+										<a href="#"><img src="../../images/unitedkingdomGT.jpg" alt=""></a>
+										<a href="#" class="name-vanhoa"><i style="color: #f06817;font-size: 1.2em" class="fa fa-map-marker" aria-hidden="true"></i> Lễ hội HoLi - Ấn Độ</a>
+										<div class="bg-vanhoa">
+										
+										</div>
+									</div>
+									
+								</div>
+								<div class="item col-sm-6 col-md-3">
+									<div class="images h-images">
+										<a href="#"><img src="../../images/lehoingamhoa.JPG" alt=""></a>
+										<a href="#" class="name-vanhoa"><i style="color: #f06817" class="fa fa-map-marker" aria-hidden="true"></i> Lễ hội ngắm hóa - Nhật Bản</a>
+										<div class="bg-vanhoa">
+											
+										</div>
+									</div>
+									
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</section>
+		<!-- kết thúc phần lễ hội -->
+		<section class="mt-3">
+			<div class="row text-center">
+				<div class="col">
+					<h3><a href="#" class="tieude">VĂN HÓA ẨM THỰC</a></h3>
+				</div>
+			</div>
+			<div class="row mt-3">
+				<div class="col img-amthuc col-sm-6 col-md">
+					<div class="card mb-3">
+					  <img class="card-img-top" src="../../images/otak-malaysia.jpg" alt="Card image cap">
+					  <div class="card-block">
+					    <h4 class="card-title">Otak-Malaysia</h4>
+					    <p class="card-text">Tiết trời miền Bắc đang trở lạnh, bạn có thể làm món mực xào cà ri cay để chiêu đãi cả nhà.</p>
+					    <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+					  </div>
+					</div>
+				</div>
+				<div class=" img-amthuc col-sm-6 col-md">
+					<div class="card mb-3">
+					  <img class="card-img-top" src="../../images/vitquaybatkinh.jpg" alt="Card image cap">
+					  <div class="card-block">
+					    <h4 class="card-title">Vịt quay Bắc Kinh</h4>
+					    <p class="card-text">Tiết trời miền Bắc đang trở lạnh, bạn có thể làm món mực xào cà ri cay để chiêu đãi cả nhà..</p>
+					    <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+					  </div>
+					</div>
+				</div>
+				<div class="img-amthuc col-sm-6 col-md">
+					<div class="card mb-3 ">
+					  <img class="card-img-top" src="../../images/michachang-hanquoc.jpg" alt="Card image cap">
+					  <div class="card-block">
+					    <h4 class="card-title">Mỳ Chachang-Hàn </h4>
+					    <p class="card-text">Tiết trời miền Bắc đang trở lạnh, bạn có thể làm món mực xào cà ri cay để chiêu đãi cả nhà..</p>
+					    <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+					  </div>
+					</div>
+				</div>
+				<div class=" img-amthuc col-sm-6 col-md">
+					<div class="card mb-3">
+					  <img class="card-img-top" src="../../images/lauthai-thailan.jpg" alt="Card image cap">
+					  <div class="card-block">
+					    <h4 class="card-title">Lẫu thái - Thái Lan</h4>
+					    <p class="card-text">Tiết trời miền Bắc đang trở lạnh, bạn có thể làm món mực xào cà ri cay để chiêu đãi cả nhà.</p>
+					    <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+					  </div>
+					</div>
+				</div>
+				<div class="img-amthuc col-sm-6 col-md">
+					<div class="card mb-3">
+					  <img class="card-img-top" src="../../images/susi-nhat.jpg" alt="Card image cap">
+					  <div class="card-block">
+					    <h4 class="card-title">Susi Nhật</h4>
+					    <p class="card-text">Tiết trời miền Bắc đang trở lạnh, bạn có thể làm món mực xào cà ri cay để chiêu đãi cả nhà.</p>
+					    <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+					  </div>
+					</div>
+				</div>
+			</div>
+		</section>
+		<!-- kết thúc ẩm thực -->
+		<section class="mt-3">
+			<div class="row">
+				<div class="col">
+					<div class="row text-center">
+						<div class="col">
+							<h3><a href="#" class="tieude">VIDEO GIỚI THIỆU QUỐC GIA</a></h3>
+						</div>
+					</div>
+					<div class="row box-tours mt-3">
+						<div class="item col-sm-6 col-md-3">
+							<div class="embed-responsive embed-responsive-4by3">
+								 <video width="320" height="240" controls  >
+							      <source src="../../images/vietnam.mp4" type="video/mp4">
+							    </video>
+							</div>
+						
+						</div>
+						<div class="item col-sm-6 col-md-3">
+							<div class="embed-responsive embed-responsive-4by3">
+								 <video width="320" height="240" controls  >
+							      <source src="../../images/vietnam.mp4" type="video/mp4">
+							    </video>
+							</div>
+						
+						</div>
+						<div class="item col-sm-6 col-md-3">
+							<div class="embed-responsive embed-responsive-4by3">
+							    <video width="320" height="240" controls  >
+							      <source src="../../images/vietnam.mp4" type="video/mp4">
+							    </video>
+							</div>
+						
+						</div>
+						<div class="item col-sm-6 col-md-3">
+							<div class="embed-responsive embed-responsive-4by3 ">
+								 <video width="320" height="240" controls  >
+							      <source src="../../images/vietnam.mp4" type="video/mp4">
+							    </video>
+							</div>
+							
+						</div>
+					</div>
+						
+				</div>
+			</div>
+		</section>
+		<!-- kết thúc video giới  thiệu -->
+		<section class="mt-3">
+			<div class="row">
+				<div class="col-12 col-sm-9">
+					<div class="row text-center">
+						<div class="col">
+							<h3><a href="#" class="tieude">DỊCH VỤ KÈM THEO</a></h3>
+						</div>
+					</div>
+					<div class="row mt-3">
+						<div class="col">
+							<div class="row box-tours">
+								<div class="item col-sm-6 col-md-4">
+									<div class="images h-images">
+										<a href="#">
+											<img src="../../images/khachsan1.jpg" alt="">
+										</a>
+										<a href="#" class="name-vanhoa"><i style="color: #f06817; font-size: 1.2em" class="fa fa-map-marker" aria-hidden="true"></i> The White Luxury</a>
+										<div class="bg-vanhoa">
+											
+										</div>
+									</div>
+									
+								</div>
+								
+								<div class="item col-sm-6 col-md-4">
+									<div class="images h-images">
+										<a href="#"><img src="../../images/khachsan2.jpg" alt=""></a>
+										<a href="#" class="name-vanhoa"><i style="color: #f06817;font-size: 1.2em" class="fa fa-map-marker" aria-hidden="true"></i> Sen Hotel Saigon</a>
+										<div class="bg-vanhoa">
+										
+										</div>
+									</div>
+									
+								</div>
+								<div class="item col-sm-6 col-md-4 h-images">
+									<div class="images h-images">
+										<a href="#"><img src="../../images/nhahang1.jpg" alt=""></a>
+										<a href="#" class="name-vanhoa"><i style="color: #f06817;font-size: 1.2em" class="fa fa-map-marker" aria-hidden="true"></i> Buffet tối hải sản, lẩu, nướng - Nhà hàng Dìn Ký (thứ 3 - CN)</a>
+										<div class="bg-vanhoa">
+										
+										</div>
+									</div>
+									
+								</div>
+								<div class="item col-sm-6 col-md-4">
+									<div class="images h-images">
+										<a href="#"><img src="../../images/nhahang2.jpg" alt=""></a>
+										<a href="#" class="name-vanhoa"><i style="color: #f06817" class="fa fa-map-marker" aria-hidden="true"></i>Thưởng Thức Tiệc Buffet Tối Tại Khách Sạn Victory</a>
+										<div class="bg-vanhoa">
+											
+										</div>
+									</div>
+									
+								</div>
+								<div class="item col-sm-6 col-md-4">
+									<div class="images h-images">
+										<a href="#"><img src="../../images/xe1.jpg" alt=""></a>
+										<a href="#" class="name-vanhoa"><i style="color: #f06817" class="fa fa-map-marker" aria-hidden="true"></i> Cho Thuê Xe 45 Chổ Huyndai Universe</a>
+										<div class="bg-vanhoa">
+											
+										</div>
+									</div>
+									
+								</div>
+								<div class="item col-sm-6 col-md-4">
+									<div class="images h-images">
+										<a href="#"><img src="../../images/xe2.jpg" alt=""></a>
+										<a href="#" class="name-vanhoa"><i style="color: #f06817" class="fa fa-map-marker" aria-hidden="true"></i>Cho Thuê Xe Hyundai Aero Express 45 Chỗ</a>
+										<div class="bg-vanhoa">
+											
+										</div>
+									</div>
+									
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="col-12 col-sm-3">
+					<ul class="nav nav-tabs" role="tablist">
+					  	<li class="nav-item">
+					    	<a class="nav-link active" data-toggle="tab" href="#home" role="tab">Cẩm nang du lịch</a>
+					  	</li>
+					  	<li class="nav-item">
+					    	<a class="nav-link" data-toggle="tab" href="#profile" role="tab">Tin tức du lịch</a>
+					  	</li>
+					  
+					</ul>
+
+					<!-- Tab panes -->
+					<div class="tab-content">
+					  <div class="tab-pane active" id="home" role="tabpanel">
+							<ul class="list-group">
+							  <li class="list-group-item">
+							  	<div class="media">
+								  <div class="media-left media-middle">
+								    <img src="../../images/binhthuan.jpg" class="media-object" style="width:100px">
+								  </div>
+								  <div class="media-body">
+								   <h6 class="media-heading"><a href="#" class="pr-1"> HỒ TIÊU PHÚ QUỐC - NỒNG THƠM HƯƠNG VỊ CUỘC SỐNG</a></h6>
+								    <p>Khám phá vẻ đẹp Việt Nam</p>
+								  </div>
+								</div>
+							  </li>
+							  <li class="list-group-item">
+						  		<div class="media">
+								  <div class="media-left media-middle">
+								    <img src="../../images/binhdinh.jpg" class="media-object" style="width:100px">
+								  </div>
+								  <div class="media-body">
+								    <h6 class="media-heading"><a href="#" class="pr-1">HẤP DẪN HÀNH TRÌNH KHÁM PHÁ ĐỈNH NÚI THÁI BÌNH Ở HONG KONG</a></h6>
+								    <p>Khám phá vẻ đẹp Châu Á</p>
+								  </div>
+								</div>
+							  </li>
+							  <li class="list-group-item">
+							  	<div class="media">
+								  <div class="media-left media-middle">
+								    <img src="../../images/bacninh.jpg" class="media-object" style="width:100px">
+								  </div>
+								  <div class="media-body">
+								    <h6 class="media-heading"><a href="#" class="pr-1">CHỢ NỔI 4 MIỀN PATTAYA – KHÔNG ĐƠN THUẦN LÀ NƠI BUÔN BÁN</a></h6>
+								    <p>Khám phá vẻ đẹp Châu Á</p>
+								  </div>
+								</div>
+							  </li>
+							  <li class="list-group-item">
+							  	<div class="media">
+								  <div class="media-left media-middle">
+								    <img src="../../images/bentre.jpg" class="media-object" style="width:100px">
+								  </div>
+								  <div class="media-body pr-2">
+								    <h6 class="media-heading"><a href="#" class="pr-1">10 ĐIỂM THAM QUAN HẤP DẪN BẠN KHÔNG THỂ BỎ QUA KHI DU HÍ ĐÀI LOAN</a></h6>
+								    <p>Khám phá vẻ đẹp Châu Á</p>
+								  </div>
+								</div>
+							  </li>
+							</ul>	
+
+					  </div>
+					
+					  <div class="tab-pane" id="profile" role="tabpanel">
+					  		 
+						<ul class="list-group list-tintuc">
+						  <li class="list-group-item">Free & Easy Maldives - Thiên đường nghĩ dưỡng</li>
+						  <li class="list-group-item">Free & Easy Hokkaido - Nhật Bản 5N4Đ</li>
+						  <li class="list-group-item">Du Lịch Thái Lan 5 ngày tết dương lịch 2018</li>
+						  <li class="list-group-item">Free Easy Thái Lan dịp tết 2018 + Tặng sim 3G/4G</li>
+						  <li class="list-group-item">Du lịch Hàn Quốc - Tết Nguyên Đán 2018</li>
+						  <li class="list-group-item">Free & Easy Maldives - Thiên đường nghĩ dưỡng</li>
+						  <li class="list-group-item">Free & Easy Hokkaido - Nhật Bản 5N4Đ</li>
+						  <li class="list-group-item">Du Lịch Thái Lan 5 ngày tết dương lịch 2018</li>
+						  <li class="list-group-item">Free Easy Thái Lan dịp tết 2018 + Tặng sim 3G/4G</li>
+						  <li class="list-group-item">Du lịch Hàn Quốc - Tết Nguyên Đán 2018</li>
+						</ul>
+							
+					  </div>
+					 
+					</div>
+				</div>
+			</div>
+		</section>
+	</div>
+	<footer class="mt-3 ">
+		<div class="container-fluid">
+			<div class="row">
+				<div class="col">
+					<div class="row text-center">
+						<div class="col">
+							<h3><a href="#" class="tieude">Tại sao bạn chọn LET GO?</a></h3>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col">
+					<div class="row mt-3 text-center d-flex flex-row justify-content-center">
+						<div class="item col-sm-6 col-md-1">
+							
+						</div>
+						<div class="item col-sm-6 col-md-2">
+							<h5>Các hành trình được thiết kế riêng cho bạn</h5>
+						</div>
+						<div class="item col-sm-6 col-md-2">
+							<h5>Hướng dẫn viên giàu kinh nghiệm, có niềm đam mê văn hóa</h5>
+						
+						</div>
+						<div class="item col-sm-6 col-md-2">
+							<h5>Bất cứ khi nào bạn cần, chúng tôi luôn có mặt</h5>
+						
+						</div>
+						<div class="item col-sm-6 col-md-2">
+							<h5>Lịch tours được sắp xếp khoa học</h5>
+							
+						</div>
+						<div class="item col-sm-6 col-md-1">
+							
+							
+						</div>
+					</div>
+						
+				</div>
+			</div>
+			<div class="row bg-row-footer">
+				<div class="col-8 bg-8"></div>
+				<div class="col-4 bg-4"></div>
+			</div>
+			<!-- //// -->
+			<div class="row mt-2">
+				<div class="col-12 col-sm">
+					<h5>THÔNG TIN</h5>
+					<ul>
+						<li><a href="#">Tuyến điểm</a></li>
+						<li><a href="#">Tư vấn du lịch</a></li>
+						<li><a href="#">Tin LetGo</a></li>
+						<li><a href="#">Tin du lịch</a></li>
+					</ul>
+				</div>
+				<div class="col-12 col-sm">
+					<h5>CHĂM SÓC KHÁCH HÀNG</h5>
+					<ul>
+						<li><a href="#">Thẻ thành viên</a></li>
+						<li><a href="#">Travel Voucher</a></li>
+						<li><a href="#">Bảo hiểm Du lịch</a></li>
+						<li><a href="#">Ý kiến khách hàng</a></li>
+						<li><a href="#">Phiếu góp ý</a></li>
+						<li><a href="#">Travel Voucher</a></li>
+						<li><a href="#">Chương trình</a></li>
+						<li><a href="#">Thắp sáng Niềm Tin</a></li>
+					</ul>
+				</div>
+				<div class="col-12 col-sm">
+					<h5>LIÊN HỆ</h5>
+					<ul>
+						<li><a href="#">Tuyến điểm</a></li>
+						<li><a href="#">Tư vấn du lịch</a></li>
+						<li><a href="#">Chi nhánh Let Go</a></li>
+						<li><a href="#">Quy định bảo vệ</a></li>
+						<li><a href="#">Điều khoản chung</a></li>
+						<li><a href="#">Quy định thanh toán</a></li>
+						<li><a href="#">Chính sách giao nhận</a></li>
+						<li><a href="#">Chính sách hủy phạt</a></li>
+						<li><a href="#">Chính sách bảo mật</a></li>
+						<li><a href="#">Tuyển dụng</a></li>
+					</ul>
+				</div>
+				<div class="col-12 col-sm">
+					<h5>ĐĂNG KÝ NHẬN THÔNG TIN</h5>
+					<form class="form-inline">
+					  <label class="sr-only" for="inlineFormInputGroup">Username</label>
+					  <div class="input-group mb-2 mr-sm-2 mb-sm-0">
+					    <div class="input-group-addon">@</div>
+					    <input type="text" class="form-control" id="inlineFormInputGroup" placeholder="Username">
+					  </div>
+
+					  <button type="submit" class="btn btn-primary">Submit</button>
+					</form>
+
+					<div class="pt-2">
+						<img src="../../images/iconxahoi/icons8-bebo-30.png" alt="..." class="img-thumbnail">
+						<img src="../../images/iconxahoi/icons8-facebook-30.png" alt="..." class="img-thumbnail">
+						<img src="../../images/iconxahoi/icons8-google-plus-30.png" alt="..." class="img-thumbnail">
+						<img src="../../images/iconxahoi/icons8-tumblr-30.png" alt="..." class="img-thumbnail">
+					</div>
+
+				</div>
+
+			</div>
+			<div class="row bg-inverse p-3 text-center">
+				
+				<div class="col">
+					<cite style="color: #fff">&copy; Copyright 2017 design Tran Thi Trang</cite>
+				</div>
+			
+			</div>
+		</div>
+			
+	</footer>
+	<button onclick="topFunction()" id="myBtn" title="Go to top"><i class="fa fa-chevron-circle-up" aria-hidden="true"></i></button>
+	<script>
+	
+	window.onscroll = function() {scrollFunction()};
+
+	function scrollFunction() {
+	    if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+	        document.getElementById("myBtn").style.display = "block";
+	    } else {
+	        document.getElementById("myBtn").style.display = "none";
+	    }
+	}
+
+	
+	function topFunction() {
+	    document.body.scrollTop = 0;
+	    document.documentElement.scrollTop = 0;
+	}
+	</script>
+	<script type='text/javascript'>window._sbzq||function(e){e._sbzq=[];var t=e._sbzq;t.push(["_setAccount",74008]);var n=e.location.protocol=="https:"?"https:":"http:";var r=document.createElement("script");r.type="text/javascript";r.async=true;r.src=n+"//static.subiz.com/public/js/loader.js";var i=document.getElementsByTagName("script")[0];i.parentNode.insertBefore(r,i)}(window);</script>
+	<script type="text/javascript">
+	        jQuery(document).ready(function ($) {
+
+	            var jssor_1_SlideshowTransitions = [
+	              {$Duration:1200,$Zoom:1,$Easing:{$Zoom:$Jease$.$InCubic,$Opacity:$Jease$.$OutQuad},$Opacity:2},
+	              {$Duration:1000,$Zoom:11,$SlideOut:true,$Easing:{$Zoom:$Jease$.$InExpo,$Opacity:$Jease$.$Linear},$Opacity:2},
+	              {$Duration:1200,$Zoom:1,$Rotate:1,$During:{$Zoom:[0.2,0.8],$Rotate:[0.2,0.8]},$Easing:{$Zoom:$Jease$.$Swing,$Opacity:$Jease$.$Linear,$Rotate:$Jease$.$Swing},$Opacity:2,$Round:{$Rotate:0.5}},
+	              {$Duration:1000,$Zoom:11,$Rotate:1,$SlideOut:true,$Easing:{$Zoom:$Jease$.$InExpo,$Opacity:$Jease$.$Linear,$Rotate:$Jease$.$InExpo},$Opacity:2,$Round:{$Rotate:0.8}},
+	              {$Duration:1200,x:0.5,$Cols:2,$Zoom:1,$Assembly:2049,$ChessMode:{$Column:15},$Easing:{$Left:$Jease$.$InCubic,$Zoom:$Jease$.$InCubic,$Opacity:$Jease$.$Linear},$Opacity:2},
+	              {$Duration:1200,x:4,$Cols:2,$Zoom:11,$SlideOut:true,$Assembly:2049,$ChessMode:{$Column:15},$Easing:{$Left:$Jease$.$InExpo,$Zoom:$Jease$.$InExpo,$Opacity:$Jease$.$Linear},$Opacity:2},
+	              {$Duration:1200,x:0.6,$Zoom:1,$Rotate:1,$During:{$Left:[0.2,0.8],$Zoom:[0.2,0.8],$Rotate:[0.2,0.8]},$Easing:$Jease$.$Swing,$Opacity:2,$Round:{$Rotate:0.5}},
+	              {$Duration:1000,x:-4,$Zoom:11,$Rotate:1,$SlideOut:true,$Easing:{$Left:$Jease$.$InExpo,$Zoom:$Jease$.$InExpo,$Opacity:$Jease$.$Linear,$Rotate:$Jease$.$InExpo},$Opacity:2,$Round:{$Rotate:0.8}},
+	              {$Duration:1200,x:-0.6,$Zoom:1,$Rotate:1,$During:{$Left:[0.2,0.8],$Zoom:[0.2,0.8],$Rotate:[0.2,0.8]},$Easing:$Jease$.$Swing,$Opacity:2,$Round:{$Rotate:0.5}},
+	              {$Duration:1000,x:4,$Zoom:11,$Rotate:1,$SlideOut:true,$Easing:{$Left:$Jease$.$InExpo,$Zoom:$Jease$.$InExpo,$Opacity:$Jease$.$Linear,$Rotate:$Jease$.$InExpo},$Opacity:2,$Round:{$Rotate:0.8}},
+	              {$Duration:1200,x:0.5,y:0.3,$Cols:2,$Zoom:1,$Rotate:1,$Assembly:2049,$ChessMode:{$Column:15},$Easing:{$Left:$Jease$.$InCubic,$Top:$Jease$.$InCubic,$Zoom:$Jease$.$InCubic,$Opacity:$Jease$.$OutQuad,$Rotate:$Jease$.$InCubic},$Opacity:2,$Round:{$Rotate:0.7}},
+	              {$Duration:1000,x:0.5,y:0.3,$Cols:2,$Zoom:1,$Rotate:1,$SlideOut:true,$Assembly:2049,$ChessMode:{$Column:15},$Easing:{$Left:$Jease$.$InExpo,$Top:$Jease$.$InExpo,$Zoom:$Jease$.$InExpo,$Opacity:$Jease$.$Linear,$Rotate:$Jease$.$InExpo},$Opacity:2,$Round:{$Rotate:0.7}},
+	              {$Duration:1200,x:-4,y:2,$Rows:2,$Zoom:11,$Rotate:1,$Assembly:2049,$ChessMode:{$Row:28},$Easing:{$Left:$Jease$.$InCubic,$Top:$Jease$.$InCubic,$Zoom:$Jease$.$InCubic,$Opacity:$Jease$.$OutQuad,$Rotate:$Jease$.$InCubic},$Opacity:2,$Round:{$Rotate:0.7}},
+	              {$Duration:1200,x:1,y:2,$Cols:2,$Zoom:11,$Rotate:1,$Assembly:2049,$ChessMode:{$Column:19},$Easing:{$Left:$Jease$.$InCubic,$Top:$Jease$.$InCubic,$Zoom:$Jease$.$InCubic,$Opacity:$Jease$.$OutQuad,$Rotate:$Jease$.$InCubic},$Opacity:2,$Round:{$Rotate:0.8}}
+	            ];
+
+	            var jssor_1_options = {
+	              $AutoPlay: 1,
+	              $SlideshowOptions: {
+	                $Class: $JssorSlideshowRunner$,
+	                $Transitions: jssor_1_SlideshowTransitions,
+	                $TransitionsOrder: 1
+	              },
+	              $ArrowNavigatorOptions: {
+	                $Class: $JssorArrowNavigator$
+	              },
+	              $ThumbnailNavigatorOptions: {
+	                $Class: $JssorThumbnailNavigator$,
+	                $Rows: 2,
+	                $Cols: 6,
+	                $SpacingX: 14,
+	                $SpacingY: 12,
+	                $Orientation: 2,
+	                $Align: 156
+	              }
+	            };
+
+	            var jssor_1_slider = new $JssorSlider$("jssor_1", jssor_1_options);
+
+	            /*#region responsive code begin*/
+
+	            var MAX_WIDTH =1140;
+
+	            function ScaleSlider() {
+	                var containerElement = jssor_1_slider.$Elmt.parentNode;
+	                var containerWidth = containerElement.clientWidth;
+
+	                if (containerWidth) {
+
+	                    var expectedWidth = Math.min(MAX_WIDTH || containerWidth, containerWidth);
+
+	                    jssor_1_slider.$ScaleWidth(expectedWidth);
+	                }
+	                else {
+	                    window.setTimeout(ScaleSlider, 30);
+	                }
+	            }
+
+	            ScaleSlider();
+
+	            $(window).bind("load", ScaleSlider);
+	            $(window).bind("resize", ScaleSlider);
+	            $(window).bind("orientationchange", ScaleSlider);
+	            /*#endregion responsive code end*/
+	        });
+	    </script>
+	    <script >
+	    	$(document).ready(function(){
+	    		$(".chitietnd1").click(function(){
+	    			$(".rowan").toggleClass("nd1");
+	    		});
+	    		$(".chitietnd2").click(function(){
+	    			$(".rowan2").toggleClass("nd2");
+	    		});
+	    	});
+	    </script>
+</body>
+</html>
